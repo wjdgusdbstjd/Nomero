@@ -686,7 +686,7 @@ gsap.from("#CONCEPT-4 .nomero-icon", {
 
 
 gsap.from("#CONCEPT-4 .concept-4-main h1", {
-    x: "6vw",
+    y: "6vw",
     opacity: 0,
     duration: 0.7,
     delay: 0.3,
@@ -694,6 +694,22 @@ gsap.from("#CONCEPT-4 .concept-4-main h1", {
     stagger: 0.35,
     scrollTrigger: {
         trigger: "#CONCEPT-4 .concept-4-main h1",
+        start: "top bottom",
+        toggleActions: "play reverse play reverse",
+        markers: false
+    }
+});
+
+
+gsap.from("#CONCEPT-4 .concept-4-img", {
+    x: "6vw",
+    opacity: 0,
+    duration: 0.7,
+    delay: 0.4,
+    ease: "power1.out",
+    stagger: 0.35,
+    scrollTrigger: {
+        trigger: "#CONCEPT-4 .concept-4-img",
         start: "top bottom",
         toggleActions: "play reverse play reverse",
         markers: false
@@ -1275,6 +1291,21 @@ gsap.from("#phone-page-2 .report-txt", {
 });
 
 
+gsap.from("#phone-page-2 .pre-img", {
+    y: "6vw",           // 아래쪽에서 시작
+    opacity: 0,
+    duration: 0.9,
+    stagger: 0.15,      // 여기도 0.15초 간격으로 시간차 등장
+    delay: 0.3,         // 첫 번째 ul이 어느 정도 나오고 나서 뒤따라 나오도록 미세한 딜레이 추가!
+    ease: "power2.out",
+    scrollTrigger: {
+        trigger: "#phone-page-2 .pre-img",
+        start: "top 85%",
+        toggleActions: "play reverse play reverse"
+    }
+});
+
+
 
 
 
@@ -1339,7 +1370,7 @@ gsap.from("#My-page .page-left", {
 });
 
 
-gsap.from("#My-page .page-right .pre-img", {
+gsap.from("#My-page .page-right .page-right-interaction", {
     x: "5vw",           // 아래쪽에서 시작
     opacity: 0,
     duration: 0.9,
@@ -1347,7 +1378,7 @@ gsap.from("#My-page .page-right .pre-img", {
     delay: 0.5,         // 첫 번째 ul이 어느 정도 나오고 나서 뒤따라 나오도록 미세한 딜레이 추가!
     ease: "power2.out",
     scrollTrigger: {
-        trigger: "#My-page .page-right .pre-img",
+        trigger: "#My-page .page-right .page-right-interaction",
         start: "top 85%",
         toggleActions: "play reverse play reverse"
     }
@@ -1369,7 +1400,7 @@ gsap.from("#My-page .page-right p", {
 });
 
 
-gsap.from("#My-page .page-left .pre-img", {
+gsap.from("#My-page .page-left .page-left-interaction", {
     x: "-5vw",           // 아래쪽에서 시작
     opacity: 0,
     duration: 0.9,
@@ -1377,7 +1408,7 @@ gsap.from("#My-page .page-left .pre-img", {
     delay: 0.5,         // 첫 번째 ul이 어느 정도 나오고 나서 뒤따라 나오도록 미세한 딜레이 추가!
     ease: "power2.out",
     scrollTrigger: {
-        trigger: "#My-page .page-left .pre-img",
+        trigger: "#My-page .page-left .page-left-interaction",
         start: "top 85%",
         toggleActions: "play reverse play reverse"
     }
@@ -1477,6 +1508,22 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+});
+
+
+
+gsap.from("#mockup", {
+    y: "8vw",           // 아래쪽에서 시작
+    opacity: 0,
+    duration: 0.9,
+    stagger: 0.15,      // 여기도 0.15초 간격으로 시간차 등장
+    delay: 0.32,         // 첫 번째 ul이 어느 정도 나오고 나서 뒤따라 나오도록 미세한 딜레이 추가!
+    ease: "power2.out",
+    scrollTrigger: {
+        trigger: "#mockup",
+        start: "top 85%",
+        toggleActions: "play reverse play reverse"
+    }
 });
 // ================================================
 // #food h2 - 한 글자씩 그 자리에서 드러나는 애니메이션
