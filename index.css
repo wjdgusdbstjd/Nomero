@@ -148,7 +148,7 @@ html {
 #wrap {
     width: 94.8vw;
     height: auto;
-    /* border: 1px solid red; */
+    /* border: 10px solid red; */
     position: relative;
 }
 
@@ -568,15 +568,15 @@ header.white-mode .logo-white { opacity: 1; }
 ========================================== */
 #video {
     width: 100vw;
-    height: 50vw;
-    border: 1px solid green;
-    background-color: green;
+    height: 70vw;
+    /* border: 10px solid green; */
+    /* background-color: green; */
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
-    /* position: absolute;
-    left: -2.6vw;; */
+    position: absolute;
+    left: -2.6vw;;
     position: relative;
     margin-top: 12.19vw;
 }
@@ -589,6 +589,9 @@ header.white-mode .logo-white { opacity: 1; }
     top: 0;
 }
 
+#video video{
+    width: 100vw;
+}
 /* ==========================================
    5. BACKGROUND & GRAPHS OPTIMIZATION
 ========================================== */
@@ -1346,6 +1349,14 @@ header.white-mode .logo-white { opacity: 1; }
     background-color: gray;
     position: absolute;
     left:-2.6vw;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#CONCEPT-2 .concept-2-gif video{
+    width: 101vw;
 }
 
 #CONCEPT-3 {
@@ -1444,7 +1455,19 @@ header.white-mode .logo-white { opacity: 1; }
 #CONCEPT-3 .left-level { display: flex; }
 #CONCEPT-3 .right-level { position: relative; bottom: 2vw; }
 
+#CONCEPT-3 .level-1 .goods{
+    width: 13vw;
+    position: absolute;
+    left:4.79vw;
+    top: 9.5vw;
+}
 
+#CONCEPT-3 .level-2 .goods{
+    width: 9.5vw;
+    position: absolute;
+    left: 6.99vw;
+    top: 6.8vw;
+}
 
 
 
@@ -1500,7 +1523,30 @@ header.white-mode .logo-white { opacity: 1; }
     top: 1vw;
 }
 
+#CONCEPT-4 .concept-4-img {
+    width: 46.15vw;
+    height: 46.04vw;
+    background-color: #7D7D93;
+    position: relative; /* 이미지들을 안에 묶어두기 위해 position 추가 */
+    overflow: hidden;   /* 박스 바깥으로 나가는 이미지 숨김 */
+}
 
+/* 이미지 3장을 한 자리에 완전히 겹치기 */
+#CONCEPT-4 .concept-4-img img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;   /* 이미지 비율 유지하면서 박스 채우기 */
+    opacity: 0;          /* 처음엔 모든 이미지 숨기기 */
+    transition: opacity 1s ease-in-out; /* 부드럽게 바뀌는 효과 (1초 동안) */
+}
+
+/* active 클래스가 붙은 이미지만 화면에 보이기 */
+#CONCEPT-4 .concept-4-img img.active {
+    opacity: 1;
+}
 /* ==========================================
    10. GOAL SECTION
 ========================================== */
@@ -2601,12 +2647,30 @@ header.white-mode .logo-white { opacity: 1; }
 }
 
 
-#phone-page .app-mockup{
+/* #phone-page .app-mockup{
     width: 28.39vw;
     position: absolute;
     top: 6.15vw;
     left: 16.35vw;
+} */
+
+
+#phone-page .app-mockup{
+    /* width: 28.39vw; */
+    width: 28.07vw;
+    position: absolute;
+    top: 6.15vw;
+    left: 16.35vw;
+    border-radius: 5vw;
+    /* border: 3px solid red; */
+    overflow: hidden;
 }
+
+#phone-page .app-mockup video{
+    width: 28.39vw;
+    /* border: 1px solid red; */
+}
+
 
 
 #phone-page .phone-txt-1{
@@ -3007,11 +3071,14 @@ header.white-mode .logo-white { opacity: 1; }
     left: -2.6vw;
 }
 
+#phone-page-2 .pre-img img{
+    width: 100vw;
+}
 
 
 #COMMERCE{
     width: 100%;
-    height: 90vw;
+    height: 94vw;
     /* border: 1px solid red; */
     position: relative;
     margin-top: 16vw;
@@ -3047,11 +3114,41 @@ header.white-mode .logo-white { opacity: 1; }
     text-align: center;
 }
 
+#COMMERCE .COMMERCE-img{
+    display: flex;
+    flex-flow: column;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+#COMMERCE .COMMERCE-img ul{
+    display: flex;
+    margin: 0;
+    padding: 0;
+
+}
+
+#COMMERCE .COMMERCE-img img{
+    width: 22.92vw;
+    display: block;
+    margin: 0.52vw;
+}
+
 #COMMERCE .app-mockup{
-    width: 28.39vw;
+    /* width: 28.39vw; */
+    width: 28.07vw;
     position: absolute;
     bottom: 0;
     left: 1vw;
+    border-radius: 5vw;
+    /* border: 3px solid red; */
+    overflow: hidden;
+}
+
+#COMMERCE .app-mockup video{
+    width: 28.39vw;
+    /* border: 1px solid red; */
 }
 
 
@@ -3115,6 +3212,38 @@ header.white-mode .logo-white { opacity: 1; }
     background-color: #7D7D93;
 }
 
+#My-page .page-left .page-left-interaction {
+    width: 22.92vw;
+    height: 16.30vw;
+    background-color: #E1E6E9;
+    position: relative; /* h3들을 이 박스 안에 묶어두기 위해 추가 */
+    
+    /* 필요하다면 텍스트 정렬이나 여백을 여기에 추가해줘 */
+    display: flex;
+    align-items: center; 
+    padding-left: 2vw; /* 예시 여백 */
+}
+
+#My-page .page-left .page-left-interaction h3 {
+    font-size: 1.82vw;
+    font-family: 'Paperozi';
+    font-weight: 400;
+    line-height: 162%; /* 줄간격이 너무 붙지 않게 설정 */
+    letter-spacing: -2%;
+    
+    /* 3개의 문장을 한 자리에 완전히 겹치기 */
+    position: absolute;
+    left: 2.6vw; /* 위에서 준 padding-left 값과 맞춰주면 좋아 */
+    
+    opacity: 0; /* 기본적으로는 다 숨김 */
+    transition: opacity 0.8s ease-in-out;
+}
+
+/* active 클래스가 붙은 h3만 화면에 보이기 */
+#My-page .page-left .page-left-interaction h3.active {
+    opacity: 1;
+}
+
 #My-page .page-left p{
     font-family: 'Paperozi';
     font-size: 1.04vw;
@@ -3148,11 +3277,52 @@ header.white-mode .logo-white { opacity: 1; }
     top: 18.75vw;
 }
 
-#My-page .page-right .pre-img{
+/* #My-page .page-right .pre-img{
     width: 30.89vw;
     height: 14.58vw;
     background-color: #7D7D93;
+} */
+
+#My-page .page-right .page-right-interaction {
+    width: 30.89vw;
+    height: 14.58vw;
+    /* background-color: #7D7D93; */
+    position: relative; /* h3들을 이 박스 안에 묶어두기 위해 추가 */
+    
+    /* 텍스트와 아이콘이 박스 가운데 오도록 정렬 (원하는 스타일에 맞게 조절 가능) */
+    display: flex;
+    align-items: center;
+    padding-left: 2vw; 
 }
+
+#My-page .page-right .page-right-interaction h3 {
+    font-size: 4.15vw;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    letter-spacing: -2%;
+    
+    /* 3개의 h3를 한 자리에 완전히 겹치기 */
+    position: absolute;
+    left: 2vw; /* 위에서 준 padding-left 값과 맞춰주면 좋아 */
+    
+    /* 아이콘과 텍스트를 한 줄에 정렬 */
+    display: flex;
+    align-items: center;
+    gap: 1vw; /* 텍스트와 이미지 사이의 간격 */
+    
+    opacity: 0; /* 기본적으로는 다 숨김 */
+    transition: opacity 0.8s ease-in-out; /* 0.8초 동안 부드럽게 전환 */
+}
+
+#My-page .page-right .page-right-interaction img {
+    width: 3.15vw;
+}
+
+/* active 클래스가 붙은 h3만 화면에 보이기 */
+#My-page .page-right .page-right-interaction h3.active {
+    opacity: 1;
+}
+
 
 
 #My-page .page-right p{
@@ -3242,17 +3412,27 @@ header.white-mode .logo-white { opacity: 1; }
 
 
 #mockup{
-    width: 100%;
-    height: 50vw;
-    margin-bottom: 23.8vw;
+    width: 100vw;
+    height: 100%;
+    margin-bottom: 23.4vw;
     /* border: 1px solid red; */
-    background-color: #7D7D93;
+    /* background-color: #7D7D93; */
     margin-top: 15vw;
+    position: relative;
+    left: -2.6vw;
+    /* position: absolute;
+    left: -2.6vw;
+    bottom: 10vw; */
+}
+
+#mockup img{
+    width: 100vw;
 }
 
 footer{
     width: 100vw;
     height: 23.96vw;
+    /* height: 42vw; */
     background-color: #191938;
     color: #FFFFFF;
     position: absolute;
@@ -3289,6 +3469,11 @@ footer .link div{
     background-color: #FFFFFF;
 }
 
+footer .link div img{
+    width: 2.97vw;
+    height: 2.97vw;
+}
+
 footer .source{
     display: flex;
     flex-direction: column;
@@ -3298,15 +3483,45 @@ footer .source{
 footer .source p{
     width: 30vw;
     /* border: 1px solid red; */
-    font-size: 0.52vw;
+    font-size: 0.54vw;
     font-family: 'Paperozi';
+    font-weight: 200;
+    line-height: 130%;
+    margin-bottom: 0.02vw;
+}
+
+footer .source h5{
+    font-size: 0.9vw;
+    font-family: 'Paperozi';
+    font-weight: 500;
+}
+
+footer .source .competitor-link{
+    display: flex;
+}
+
+footer .link div {
+    transition: transform 0.2s ease-in-out;
+}
+
+/* 2. 호버했을 때 크기를 살짝(1.05배) 키움 */
+footer .link div:hover {
+    transform: scale(1.17);
+}
+
+footer .source .competitor-link h6{
+    font-size: 0.54vw;
+    font-family: 'Paperozi';
+    line-height: 130%;
+    font-weight: 200;
+    margin-right: 0.4vw;
 }
 
 footer .footer-right ul{
     display: flex;
     /* border: 1px solid red; */
     position: absolute;
-    right: 5.47vw;
+    right: 7.47vw;
     top: 9.06vw;
     gap: 4.04vw;
 }
@@ -3341,6 +3556,7 @@ footer .footer-right p{
 }
 
 
+
 .to-top-btn {
     position: fixed;
     bottom: 3vw;       /* 화면 밑에서부터의 거리 */
@@ -3362,6 +3578,7 @@ footer .footer-right p{
     
     /* 나타나고 사라질 때 0.3초 동안 사르륵 변하는 트랜지션 */
     transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.2s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.6s ease, border-color 0.6s ease;
 }
 
 /* 호버했을 때 살짝 떠오르는 센스 있는 디자인 효과 */
@@ -3375,4 +3592,17 @@ footer .footer-right p{
     opacity: 0;
     pointer-events: none;       /* 투명할 때는 마우스 클릭 안 되게 막기 */
     transform: translateY(1vw); /* 밑으로 살짝 내려가서 숨어있기 */
+}
+
+/* ★ !important 없이 명시도(점수) 높여서 덮어쓰기 */
+.to-top-btn.invert {
+    background-color: #ffffff; /* 클래스 2개가 묶여서 기존 클래스 1개짜리 색상을 이김 */
+    color: #191938;            
+    border: 1px solid #191938; 
+}
+
+/* ★ 반전된 상태에서의 호버 효과도 점수를 똑같이 맞춰줌 */
+.to-top-btn.invert:hover {
+    background-color: #f4f4f7; 
+    transform: scale(1.05);
 }
