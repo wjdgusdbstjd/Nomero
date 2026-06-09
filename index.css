@@ -221,9 +221,10 @@ header.white-mode .logo-white { opacity: 1; }
 
 
 #main {
-    width: 100%;
+    width: 100vw;
     height: 53vw;
     position: relative;
+    right: 0vw;
     /* border: 2px solid red; */
 }
 
