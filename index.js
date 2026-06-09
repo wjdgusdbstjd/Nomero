@@ -277,24 +277,129 @@ document.addEventListener("DOMContentLoaded", () => {
 // ================================================
 // #TOP BUTTON - 비디오 영역 지나면 나타나는 탑 버튼
 // ================================================
+// document.addEventListener("DOMContentLoaded", () => {
+//     const topBtn = document.querySelector(".to-top-btn");
+
+//     if (topBtn) {
+//         // 🎯 1. 스크롤 위치 감지해서 버튼 켜고 끄기
+//         ScrollTrigger.create({
+//             trigger: "#video",      /* 🌟 비디오 영역을 기준으로 삼아! */
+//             start: "bottom 20%",    /* 비디오 영역의 '바닥(bottom)'이 화면 상단 20% 지점을 지나갈 때 */
+//             onEnter: () => topBtn.classList.remove("hide"),  /* 아래로 내려가면 버튼 등장! */
+//             onLeaveBack: () => topBtn.classList.add("hide"), /* 다시 메인/비디오로 올라오면 버튼 숨김! */
+//         });
+
+//         // 🎯 2. 버튼 클릭했을 때 맨 상단으로 부드럽게 스크롤링
+//         topBtn.addEventListener("click", () => {
+//             window.scrollTo({
+//                 top: 0,
+//                 behavior: "smooth" /* 아까 심어둔 효과 덕분에 사르륵 미끄러지듯 올라가 */
+//             });
+//         });
+//     }
+// });
+
+
 document.addEventListener("DOMContentLoaded", () => {
     const topBtn = document.querySelector(".to-top-btn");
 
     if (topBtn) {
-        // 🎯 1. 스크롤 위치 감지해서 버튼 켜고 끄기
+        // 🎯 1. 스크롤 위치 감지해서 버튼 켜고 끄기 (기존 유지)
         ScrollTrigger.create({
-            trigger: "#video",      /* 🌟 비디오 영역을 기준으로 삼아! */
-            start: "bottom 20%",    /* 비디오 영역의 '바닥(bottom)'이 화면 상단 20% 지점을 지나갈 때 */
-            onEnter: () => topBtn.classList.remove("hide"),  /* 아래로 내려가면 버튼 등장! */
-            onLeaveBack: () => topBtn.classList.add("hide"), /* 다시 메인/비디오로 올라오면 버튼 숨김! */
+            trigger: "#video",
+            start: "bottom 20%",
+            onEnter: () => topBtn.classList.remove("hide"),
+            onLeaveBack: () => topBtn.classList.add("hide"),
         });
 
-        // 🎯 2. 버튼 클릭했을 때 맨 상단으로 부드럽게 스크롤링
+        // 🎯 2. 버튼 클릭했을 때 맨 상단으로 부드럽게 스크롤링 (기존 유지)
         topBtn.addEventListener("click", () => {
             window.scrollTo({
                 top: 0,
-                behavior: "smooth" /* 아까 심어둔 효과 덕분에 사르륵 미끄러지듯 올라가 */
+                behavior: "smooth"
             });
         });
+
+        // 🎯 3. [완벽 해결] footer 영역에 진입하면 버튼 색상 반전시키기
+        ScrollTrigger.create({
+            trigger: "footer",         // ★ 전체 문서 대신 HTML 맨 밑에 있는 footer를 타겟팅!
+            start: "top 90%",          // footer 상단이 화면 하단 90% 지점(살짝 보이기 시작할 때) 진입하면 바로 실행
+            onEnter: () => {
+                // 맨 바닥(푸터)에 닿으면 배경 흰색, 글자 딥네이비, 얇은 테두리 추가
+                topBtn.style.backgroundColor = "#ffffff";
+                topBtn.style.color = "#191938";
+                topBtn.style.border = "1px solid #191938";
+            },
+            onLeaveBack: () => {
+                // 다시 위로 올리면 원상복구 (CSS 기존 스타일로 초기화)
+                topBtn.style.backgroundColor = "";
+                topBtn.style.color = "";
+                topBtn.style.border = "";
+            }
+        });
     }
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    // concept-4-img 안에 있는 모든 이미지 가져오기
+    const images = document.querySelectorAll("#CONCEPT-4 .concept-4-img img");
+    let currentIndex = 0;
+
+    function changeImage() {
+        // 현재 보이고 있는 이미지에서 active 클래스 제거
+        images[currentIndex].classList.remove("active");
+
+        // 다음 이미지 인덱스로 이동 (마지막 이미지 다음엔 다시 0으로)
+        currentIndex = (currentIndex + 1) % images.length;
+
+        // 다음 이미지에 active 클래스 추가
+        images[currentIndex].classList.add("active");
+    }
+
+    // 3초(3000밀리초)마다 changeImage 함수 반복 실행
+    setInterval(changeImage, 3000);
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    // 마이페이지 텍스트 전환 기능
+    const textElements = document.querySelectorAll("#My-page .page-left-interaction h3");
+    let currentTextIndex = 0;
+
+    function changeText() {
+        // 현재 보이고 있는 텍스트 숨기기
+        textElements[currentTextIndex].classList.remove("active");
+
+        // 다음 텍스트 인덱스로 이동
+        currentTextIndex = (currentTextIndex + 1) % textElements.length;
+
+        // 다음 텍스트 보여주기
+        textElements[currentTextIndex].classList.add("active");
+    }
+
+    // 2.5초(2500ms)마다 문장 자동 전환
+    setInterval(changeText, 2000);
+});
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    // 마이페이지 우측 레벨 텍스트 전환 기능
+    const levelElements = document.querySelectorAll("#My-page .page-right-interaction h3");
+    let currentLevelIndex = 0;
+
+    function changeLevel() {
+        // 현재 보이고 있는 레벨 텍스트 숨기기
+        levelElements[currentLevelIndex].classList.remove("active");
+
+        // 다음 레벨 인덱스로 이동
+        currentLevelIndex = (currentLevelIndex + 1) % levelElements.length;
+
+        // 다음 레벨 텍스트 보여주기
+        levelElements[currentLevelIndex].classList.add("active");
+    }
+
+    // 2.5초(2500ms)마다 레벨 자동 전환 (좌측 텍스트와 싱크를 맞춤)
+    setInterval(changeLevel, 2000);
 });
