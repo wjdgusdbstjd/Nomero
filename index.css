@@ -742,7 +742,7 @@ header.white-mode .logo-white { opacity: 1; }
 #BACKGROUND .graph-2 {
     position: absolute;
     right: -2.7vw;
-    width: 50vw;
+    width: 50.2vw;
     height: 38.96vw;
     display: flex;
     flex-flow: column;
@@ -2348,9 +2348,11 @@ header.white-mode .logo-white { opacity: 1; }
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    width: 101%;
     height: 6.09vw;
     border: 0.052vw solid #191938;
+    position: relative;
+    right: 0.1vw;
 }
 
 
