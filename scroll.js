@@ -403,45 +403,40 @@ gsap.from("#research .research-bottom", {
 // ================================================
 // 5. #speech — 말풍선 좌우 교차 등장
 // ================================================
-gsap.from("#speech .speech-1", {
-    x: "-8vw",
-    opacity: 0,
-    duration: 0.9,
-    delay: 0.5,
-    ease: "power2.out",
-    scrollTrigger: {
-        trigger: "#speech .speech-1",
-        start: "top 85%",
-        toggleActions: "play reverse play reverse"
-    }
-});
+// SPEECH - 말풍선 등장 + 핵심 문장 강조
+[
+    { selector: ".speech-1", x: "-8vw" },
+    { selector: ".speech-2", x: "8vw" },
+    { selector: ".speech-3", x: "-8vw" }
+].forEach(({ selector, x }) => {
 
-gsap.from("#speech .speech-2", {
-    x: "8vw",
-    opacity: 0,
-    duration: 0.9,
-    delay: 0.5,
-    ease: "power2.out",
-    scrollTrigger: {
-        trigger: "#speech .speech-2",
-        start: "top 85%",
-        toggleActions: "play reverse play reverse"
-    }
-});
+    const speech = document.querySelector(`#speech ${selector}`);
+    const strong = speech.querySelector("strong");
 
-gsap.from("#speech .speech-3", {
-    x: "-8vw",
-    opacity: 0,
-    duration: 0.9,
-    delay: 0.5,
-    ease: "power2.out",
-    scrollTrigger: {
-        trigger: "#speech .speech-3",
-        start: "top 85%",
-        toggleActions: "play reverse play reverse"
-    }
-});
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: speech,
+            start: "top 85%",
+            toggleActions: "play reverse play reverse"
+        }
+    });
 
+    // 1. 말풍선 전체 등장
+    tl.from(speech, {
+        x: x,
+        opacity: 0,
+        duration: 0.9,
+        delay: 0.5,
+        ease: "power2.out"
+    });
+
+    // 2. 말풍선 등장 후 핵심 문장 Bold
+    tl.to(strong, {
+    fontWeight: 700,
+    duration: 0.3,
+    ease: "power2.out"
+}, "-=0.3");
+});
 
 // ================================================
 // 6. #COMPETITOR — 제목 & 이미지 등장
@@ -505,7 +500,7 @@ gsap.from("#CONCEPT .concept-title h6", {
 });
 
 gsap.from("#CONCEPT .concept-title h2", {
-    x: "10vw",
+    y: "10vw",
     opacity: 0,
     duration: 1,
     delay: 1,
@@ -678,8 +673,8 @@ gsap.from("#CONCEPT-4 .nomero-icon", {
     stagger: 0.35,
     scrollTrigger: {
         trigger: "#CONCEPT-4 .nomero-icon",
-        start: "top bottom",
-        toggleActions: "play reverse play reverse",
+        start: "top 85%",
+        once: true,
         markers: false
     }
 });
@@ -786,31 +781,40 @@ gsap.from("#PERSONA ul li", {
 
 // persona 카드 hover 효과 (CSS 주입)
 const personaStyle = document.createElement('style');
+
 personaStyle.textContent = `
     #PERSONA ul li {
-        // transition: transform 0.35s ease, box-shadow 0.35s ease, background-color 0.35s ease;
         cursor: pointer;
+        transition: background-color 0.7s ease, box-shadow 0.5s ease;
     }
+
+    #PERSONA ul li h5,
+    #PERSONA ul li p {
+        transition: color 0.5s ease;
+    }
+
+    #PERSONA ul li .tag-1,
+    #PERSONA ul li .tag-2 {
+        transition: background-color 0.5s ease, color 0.5s ease;
+    }
+
     #PERSONA ul li:hover {
-        // transform: translateY(-4.2vw);
         box-shadow: 0 2vw 4vw rgba(25,25,56,0.10);
         background-color: #191938;
-        transition: background-color 0.7s ease;
     }
 
     #PERSONA ul li:hover h5,
     #PERSONA ul li:hover p {
-        color: #ffff;
-        transition: color 0.3s ease;
+        color: #fff;
     }
 
     #PERSONA ul li:hover .tag-1,
     #PERSONA ul li:hover .tag-2 {
         background-color: #C8E35F;
         color: #191938;
-        transition: background-color 0.5s ease, color 0.5s ease;
     }
 `;
+
 document.head.appendChild(personaStyle);
 
 
@@ -887,6 +891,52 @@ gsap.from("#DESIGN .color", {
         toggleActions: "play reverse play reverse"
     }
 });
+
+
+// DESIGN - LOGO SYSTEM 인터랙션
+gsap.from("#DESIGN .logo-txt .circle", {
+    x: "5vw",
+    // scale: 2.3,
+    opacity: 0,
+    duration: 1.2,
+    ease: "power3.out",
+    transformOrigin: "center center",
+    scrollTrigger: {
+        trigger: "#DESIGN .logo-txt",
+        start: "top 80%",
+        toggleActions: "play reverse play reverse"
+    }
+});
+
+gsap.from("#DESIGN .logo-txt h1", {
+    x: "5vw",
+    opacity: 0,
+    duration: 1.2,
+    ease: "power3.out",
+    scrollTrigger: {
+        trigger: "#DESIGN .logo-txt",
+        start: "top 80%",
+       toggleActions: "play reverse play reverse"
+    }
+});
+
+
+gsap.from("#DESIGN .logo-sys p", {
+    y: "5vw",
+    opacity: 0,
+    duration: 1.2,
+    delay: 0.5,
+    ease: "power3.out",
+    scrollTrigger: {
+        trigger: "#DESIGN .logo-txt",
+        start: "top 80%",
+       toggleActions: "play reverse play reverse"
+    }
+});
+
+
+
+
 
 
 gsap.from("#PRODUCT .title h2:nth-child(1)", {
@@ -1078,7 +1128,7 @@ gsap.from("#DESIGN .color-palette ul:first-of-type li", {
     stagger: 0.15,      // 0.15초 간격으로 시간차 등장
     ease: "power2.out",
     scrollTrigger: {
-        trigger: "#DESIGN .color-palette", // 컬러 팔레트 영역이 보이면 발동
+        trigger: "#DESIGN .color-palette ul:first-of-type li", // 컬러 팔레트 영역이 보이면 발동
         start: "top 85%",
         toggleActions: "play reverse play reverse"
     }
@@ -1095,7 +1145,7 @@ gsap.from("#DESIGN .color-palette ul:nth-of-type(2) li", {
     delay: 0.3,         // 첫 번째 ul이 어느 정도 나오고 나서 뒤따라 나오도록 미세한 딜레이 추가!
     ease: "power2.out",
     scrollTrigger: {
-        trigger: "#DESIGN .color-palette",
+        trigger: "#DESIGN .color-palette ul:nth-of-type(2) li",
         start: "top 85%",
         toggleActions: "play reverse play reverse"
     }
@@ -1364,7 +1414,7 @@ gsap.from("#My-page .page-left", {
     ease: "power2.out",
     scrollTrigger: {
         trigger: "#My-page .page-left",
-        start: "top 85%",
+        start: "top 75%",
         toggleActions: "play reverse play reverse"
     }
 });
@@ -1379,7 +1429,7 @@ gsap.from("#My-page .page-right .page-right-interaction", {
     ease: "power2.out",
     scrollTrigger: {
         trigger: "#My-page .page-right .page-right-interaction",
-        start: "top 85%",
+        start: "top 75%",
         toggleActions: "play reverse play reverse"
     }
 });
@@ -1410,6 +1460,38 @@ gsap.from("#My-page .page-left .page-left-interaction", {
     scrollTrigger: {
         trigger: "#My-page .page-left .page-left-interaction",
         start: "top 85%",
+        toggleActions: "play reverse play reverse"
+    }
+});
+
+
+
+gsap.from("#SERVICE h2", {
+    x: "-5vw",           // 아래쪽에서 시작
+    opacity: 0,
+    duration: 0.9,
+    stagger: 0.15,      // 여기도 0.15초 간격으로 시간차 등장
+    delay: 0.4,         // 첫 번째 ul이 어느 정도 나오고 나서 뒤따라 나오도록 미세한 딜레이 추가!
+    ease: "power2.out",
+    scrollTrigger: {
+        trigger: "#SERVICE h2",
+        start: "top 75%",
+        toggleActions: "play reverse play reverse"
+    }
+});
+
+
+
+gsap.from("#SERVICE .service-main", {
+    y: "9vw",           // 아래쪽에서 시작
+    opacity: 0,
+    duration: 0.9,
+    stagger: 0.15,      // 여기도 0.15초 간격으로 시간차 등장
+    delay: 0.4,         // 첫 번째 ul이 어느 정도 나오고 나서 뒤따라 나오도록 미세한 딜레이 추가!
+    ease: "power2.out",
+    scrollTrigger: {
+        trigger: "#SERVICE .service-main",
+        start: "top 75%",
         toggleActions: "play reverse play reverse"
     }
 });
@@ -1569,7 +1651,8 @@ gsap.utils.toArray("section h4").forEach((el) => {
         scrollTrigger: {
             trigger: el,
             start: "top 90%",
-            toggleActions: "play reverse play reverse"
+            // toggleActions: "play reverse play reverse"
+            once: true
         }
     });
 });
@@ -1616,3 +1699,1081 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     
 });
+
+
+
+gsap.registerPlugin(ScrollTrigger);
+
+const keywordItems = document.querySelectorAll(
+    "#BRAND-SLOGAN .keyword-item"
+);
+
+let currentTimeline;
+
+// 키워드 초기화
+function resetKeywords() {
+    keywordItems.forEach(item => {
+        item.classList.remove("active");
+    });
+}
+
+// 애니메이션 실행
+function playKeywordAnimation() {
+
+    // 이전 애니메이션이 실행 중이면 종료
+    if (currentTimeline) {
+        currentTimeline.kill();
+    }
+
+    resetKeywords();
+
+    currentTimeline = gsap.timeline();
+
+    keywordItems.forEach((item, index) => {
+
+        currentTimeline.call(() => {
+            item.classList.add("active");
+        });
+
+        currentTimeline.to({}, {
+            duration: 0.4
+        });
+
+        if (index !== keywordItems.length - 1) {
+            currentTimeline.call(() => {
+                item.classList.remove("active");
+            });
+        }
+
+    });
+}
+
+// 스크롤 트리거
+ScrollTrigger.create({
+    trigger: "#BRAND-SLOGAN .slogan-keywords",
+    start: "top 85%",
+
+    onEnter: playKeywordAnimation,
+    onEnterBack: playKeywordAnimation
+});
+
+
+
+
+// ---------------------------------------
+
+
+gsap.registerPlugin(ScrollTrigger);
+
+const valueItems = gsap.utils.toArray(
+    "#BRAND-VALUE .value-item"
+);
+
+let valueTimeline;
+
+// 애니메이션 실행
+function playValueAnimation() {
+
+    // 기존 애니메이션 종료
+    if (valueTimeline) {
+        valueTimeline.kill();
+    }
+
+    // 모든 요소 초기화
+    valueItems.forEach(item => {
+        gsap.set(item.querySelector(".value-top"), {
+            opacity: 0,
+            y: 25
+        });
+
+        gsap.set(item.querySelector(".value-arrow"), {
+            scaleY: 0,
+            transformOrigin: "top center"
+        });
+
+        gsap.set(item.querySelector(".value-bottom"), {
+            opacity: 0,
+            y: 25
+        });
+    });
+
+    valueTimeline = gsap.timeline();
+
+    // 1. 상단 텍스트 등장
+    valueTimeline.to("#BRAND-VALUE .value-top", {
+        opacity: 1,
+        y: 0,
+        duration: 0.7,
+        stagger: 0.15,
+        ease: "power2.out"
+    });
+
+    // 2. 화살표 위에서 아래로 그려짐
+    valueTimeline.to("#BRAND-VALUE .value-arrow", {
+        scaleY: 1,
+        duration: 0.9,
+        stagger: 0.15,
+        ease: "power2.inOut"
+    }, "-=0.2");
+
+    // 3. 하단 텍스트 등장
+    valueTimeline.to("#BRAND-VALUE .value-bottom", {
+        opacity: 1,
+        y: 0,
+        duration: 0.7,
+        stagger: 0.15,
+        ease: "power2.out"
+    }, "-=0.3");
+}
+
+// 스크롤 진입 감지
+ScrollTrigger.create({
+    trigger: "#BRAND-VALUE .brand-value-list",
+    start: "top 80%",
+
+    onEnter: playValueAnimation,
+    onEnterBack: playValueAnimation
+});
+
+
+// --------------------------------------
+
+gsap.registerPlugin(ScrollTrigger);
+
+const journeyDots = gsap.utils.toArray(
+    "#USER-JOURNEY .journey-dot"
+);
+
+const journeyItems = gsap.utils.toArray(
+    "#USER-JOURNEY .journey-item"
+);
+
+const journeyProgress = document.querySelector(
+    "#USER-JOURNEY .journey-progress"
+);
+
+let journeyTimeline;
+
+// 애니메이션 실행 함수
+function playJourneyAnimation() {
+
+    // 이전 애니메이션 종료
+    if (journeyTimeline) {
+        journeyTimeline.kill();
+    }
+
+    // 초기 상태 설정
+    gsap.set(journeyProgress, {
+        scaleX: 0,
+        transformOrigin: "left center"
+    });
+
+    gsap.set(journeyDots, {
+        scale: 0,
+        opacity: 0
+    });
+
+    gsap.set(journeyItems, {
+        opacity: 0,
+        y: 25
+    });
+
+    // 새로운 타임라인
+    journeyTimeline = gsap.timeline();
+
+    // 선이 왼쪽에서 오른쪽으로 그려짐
+    journeyTimeline.to(journeyProgress, {
+        scaleX: 1,
+        duration: 3,
+        ease: "none"
+    }, 0);
+
+    // 각 단계 순서대로 등장
+    journeyDots.forEach((dot, index) => {
+
+        const item = journeyItems[index];
+
+        // 각 포인트가 등장하는 시간
+        const startTime = index * 0.4;
+
+        // 원형 포인트 등장
+        journeyTimeline.to(dot, {
+            scale: 1.4,
+            opacity: 1,
+            duration: 0.4,
+            ease: "back.out(2)"
+        }, startTime);
+
+        // 원래 크기로 돌아옴
+        journeyTimeline.to(dot, {
+            scale: 1,
+            duration: 0.2
+        }, startTime + 0.2);
+
+        // 설명 텍스트 등장
+        journeyTimeline.to(item, {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            ease: "power2.out"
+        }, startTime + 0.2);
+
+    });
+}
+
+// 스크롤 감지
+ScrollTrigger.create({
+    trigger: "#USER-JOURNEY .journey-container",
+    start: "top 80%",
+
+    onEnter: playJourneyAnimation,
+    onEnterBack: playJourneyAnimation
+});
+
+
+// -------------------------------------------------
+
+
+const goodsTrack = document.querySelector(".goods-track");
+
+if (goodsTrack && typeof gsap !== "undefined") {
+
+    // 원본 카드 3개
+    const originalItems = Array.from(goodsTrack.children);
+
+    // 끊김 없는 반복을 위해 복제
+    originalItems.forEach((item) => {
+        const clone = item.cloneNode(true);
+        clone.setAttribute("aria-hidden", "true");
+        goodsTrack.appendChild(clone);
+    });
+
+    let goodsAnimation;
+
+    function initGoodsSlider() {
+
+        // 화면 크기가 변경되면 기존 애니메이션 제거
+        if (goodsAnimation) {
+            goodsAnimation.kill();
+        }
+
+        gsap.set(goodsTrack, { x: 0 });
+
+        // 첫 번째 복제 카드까지의 거리
+        const firstClone = goodsTrack.children[originalItems.length];
+        const moveDistance =
+            firstClone.getBoundingClientRect().left -
+            goodsTrack.children[0].getBoundingClientRect().left;
+
+        // 일정한 속도로 왼쪽 이동
+        goodsAnimation = gsap.to(goodsTrack, {
+            x: -moveDistance,
+            duration: moveDistance / 65,
+            ease: "none",
+            repeat: -1
+        });
+    }
+
+    initGoodsSlider();
+
+    // 화면 크기가 바뀌면 거리 재계산
+    window.addEventListener("resize", initGoodsSlider);
+
+    // 굿즈 이미지에 호버했을 때만 슬라이더 정지
+const goodsSlider = document.querySelector(".goods-slider");
+
+goodsSlider.addEventListener("mouseover", (e) => {
+    if (e.target.closest(".goods-img")) {
+        goodsAnimation.pause();
+    }
+});
+
+goodsSlider.addEventListener("mouseout", (e) => {
+    const goodsImg = e.target.closest(".goods-img");
+
+    if (goodsImg && !goodsImg.contains(e.relatedTarget)) {
+        goodsAnimation.resume();
+    }
+});
+}
+
+
+
+
+// -------------------------------------
+
+
+gsap.registerPlugin(ScrollTrigger);
+
+// ========================================
+// ECO EDITORIAL 애니메이션
+// ========================================
+
+const ecoTimeline = gsap.timeline({
+    paused: true,
+    defaults: {
+        ease: "power3.out"
+    }
+});
+
+// ========================================
+// 초기 상태 설정
+// ========================================
+
+// 상단 타이틀
+gsap.set("#ECO-EDITORIAL .eco-heading", {
+    opacity: 0,
+    y: 40
+});
+
+// ECC
+gsap.set("#ECO-EDITORIAL .eco-text-left", {
+    opacity: 0,
+    x: -100
+});
+
+// OO
+gsap.set("#ECO-EDITORIAL .eco-text-right", {
+    opacity: 0,
+    x: 100
+});
+
+// 가운데 이미지
+gsap.set("#ECO-EDITORIAL .eco-main-img", {
+    opacity: 0,
+    y: 50
+});
+
+// 별 그래픽
+gsap.set("#ECO-EDITORIAL .eco-star", {
+    opacity: 0,
+    rotation: -90,
+    scale: 0.5
+});
+
+// 하단 슬로건
+gsap.set("#ECO-EDITORIAL .eco-bottom-text", {
+    opacity: 0,
+    y: 40
+});
+
+
+// ========================================
+// 별 무한 회전 애니메이션
+// ========================================
+
+const ecoStarRotation = gsap.to("#ECO-EDITORIAL .eco-star", {
+    rotation: "+=360",
+    duration: 20,
+    ease: "none",
+    repeat: -1,
+    paused: true
+});
+
+
+// ========================================
+// 등장 애니메이션
+// ========================================
+
+// 1. 상단 타이틀 천천히 등장
+ecoTimeline.to("#ECO-EDITORIAL .eco-heading", {
+    opacity: 1,
+    y: 0,
+    duration: 1.2
+});
+
+// 2. ECC 왼쪽에서 등장
+ecoTimeline.to("#ECO-EDITORIAL .eco-text-left", {
+    opacity: 1,
+    x: 0,
+    duration: 1.4
+}, "-=0.2");
+
+// 3. OO 오른쪽에서 등장
+ecoTimeline.to("#ECO-EDITORIAL .eco-text-right", {
+    opacity: 1,
+    x: 0,
+    duration: 1.4
+}, "-=0.8");
+
+// 4. 가운데 이미지 아래에서 등장
+// 4. 가운데 이미지 빠르게 등장
+ecoTimeline.to("#ECO-EDITORIAL .eco-main-img", {
+    opacity: 1,
+    y: 0,
+    duration: 0.6,
+    ease: "power2.out"
+}, 0.35);
+
+// 5. 별 그래픽 자연스럽게 등장
+ecoTimeline.to("#ECO-EDITORIAL .eco-star", {
+    opacity: 1,
+    rotation: 0,
+    scale: 1,
+    duration: 1.2,
+    ease: "back.out(1.7)"
+}, "-=0.4");
+
+// 별 등장 완료 후 무한 회전 시작
+ecoTimeline.call(() => {
+    ecoStarRotation.restart();
+});
+
+// 6. 하단 슬로건 등장
+ecoTimeline.to("#ECO-EDITORIAL .eco-bottom-text", {
+    opacity: 1,
+    y: 0,
+    duration: 1.1
+}, 1.8);
+
+
+
+// -----------------------------------------
+
+
+// ========================================
+// ECO BOTTOM IMAGES 인터랙션
+// ========================================
+
+const ecoBottomItems = gsap.utils.toArray(
+    "#eco-bottom-images .eco-img"
+);
+
+// 초기 상태
+gsap.set(ecoBottomItems, {
+    opacity: 0,
+    y: 60
+});
+
+// 등장 애니메이션
+const ecoBottomTimeline = gsap.timeline({
+    paused: true
+});
+
+ecoBottomTimeline.to(ecoBottomItems, {
+    opacity: 1,
+    y: 0,
+    duration: 1.1,
+    stagger: 0.2,
+    ease: "power3.out"
+});
+
+// 스크롤 진입 감지
+
+ScrollTrigger.create({
+    trigger: "#eco-bottom-images",
+    start: "top 65%",
+
+    onEnter: () => {
+        ecoBottomTimeline.restart();
+    }
+});
+// ========================================
+// 스크롤 진입 감지
+// ========================================
+
+ScrollTrigger.create({
+    trigger: "#ECO-EDITORIAL",
+
+    // 기존 70%보다 늦게 시작
+    start: "top 40%",
+
+    // 아래로 스크롤해서 진입
+    onEnter: () => {
+        ecoStarRotation.pause(0);
+        ecoTimeline.restart();
+    },
+
+    // 위로 스크롤해서 재진입
+    onEnterBack: () => {
+        ecoStarRotation.pause(0);
+        ecoTimeline.restart();
+    },
+
+    // 아래로 벗어났을 때
+    onLeave: () => {
+        ecoStarRotation.pause(0);
+        ecoTimeline.pause(0);
+    },
+
+    // 위로 벗어났을 때
+    onLeaveBack: () => {
+        ecoStarRotation.pause(0);
+        ecoTimeline.pause(0);
+    }
+});
+
+
+// -------------------------------------------
+
+
+gsap.registerPlugin(ScrollTrigger);
+
+// 움직일 제목 텍스트
+const goodsTitleLines = gsap.utils.toArray(
+    "#BRAND-GOODS .goods-title-line span"
+);
+
+// 오른쪽 설명 텍스트
+const goodsDescription = document.querySelector(
+    "#BRAND-GOODS .goods-intro p"
+);
+
+// 타임라인
+const goodsIntroTimeline = gsap.timeline({
+    paused: true
+});
+
+// 초기 상태
+gsap.set(goodsTitleLines, {
+    yPercent: 110
+});
+
+gsap.set(goodsDescription, {
+    x: 70,
+    opacity: 0
+});
+
+// 1. 제목이 아래에서 위로 등장
+goodsIntroTimeline.to(goodsTitleLines, {
+    yPercent: 0,
+    duration: 0.9,
+    stagger: 0.18,
+    ease: "power3.out"
+});
+
+// 2. 제목이 완전히 나타난 후 설명 등장
+goodsIntroTimeline.to(goodsDescription, {
+    x: 0,
+    opacity: 1,
+    duration: 0.9,
+    ease: "power3.out"
+}, "+=0.1");
+
+// 화면 진입 감지
+ScrollTrigger.create({
+    trigger: "#BRAND-GOODS .goods-intro",
+    start: "top 80%",
+
+    onEnter: () => goodsIntroTimeline.restart(),
+    onEnterBack: () => goodsIntroTimeline.restart(),
+
+    onLeave: () => goodsIntroTimeline.pause(0),
+    onLeaveBack: () => goodsIntroTimeline.pause(0)
+});
+
+
+
+
+// ------------------------------------------
+
+gsap.from("#nomero-brand-web h3", {
+    x: "-5vw",           // 아래쪽에서 시작
+    opacity: 0,
+    duration: 0.9,
+    stagger: 0.15,      // 여기도 0.15초 간격으로 시간차 등장
+    delay: 0.4,         // 첫 번째 ul이 어느 정도 나오고 나서 뒤따라 나오도록 미세한 딜레이 추가!
+    ease: "power2.out",
+    scrollTrigger: {
+        trigger: "#nomero-brand-web h3",
+        start: "top 85%",
+        // toggleActions: "play reverse play reverse"
+        once: true
+    }
+});
+
+
+gsap.from("#nomero-brand-web .brand-web-left p", {
+    y: "5vw",           // 아래쪽에서 시작
+    opacity: 0,
+    duration: 0.9,
+    stagger: 0.15,      // 여기도 0.15초 간격으로 시간차 등장
+    delay: 0.9,         // 첫 번째 ul이 어느 정도 나오고 나서 뒤따라 나오도록 미세한 딜레이 추가!
+    ease: "power2.out",
+    scrollTrigger: {
+        trigger: "#nomero-brand-web .brand-web-left p",
+        start: "top 85%",
+        // toggleActions: "play reverse play reverse"
+        once: true
+    }
+});
+
+
+gsap.from("#nomero-brand-web .brand-web-right", {
+    y: "5vw",           // 아래쪽에서 시작
+    opacity: 0,
+    duration: 0.9,
+    stagger: 0.15,      // 여기도 0.15초 간격으로 시간차 등장
+    delay: 1.4,         // 첫 번째 ul이 어느 정도 나오고 나서 뒤따라 나오도록 미세한 딜레이 추가!
+    ease: "power2.out",
+    scrollTrigger: {
+        trigger: "#nomero-brand-web .brand-web-right",
+        start: "top 85%",
+        // toggleActions: "play reverse play reverse"
+        once: true
+    }
+});
+
+
+
+// -----------------------------------
+
+
+gsap.registerPlugin(ScrollTrigger);
+
+function createBrandWebAnimation(selector, titleFrom, imageFrom) {
+
+    const section = document.querySelector(selector);
+
+    if (!section) return;
+
+    const title = section.querySelector("h1");
+    const image = section.querySelector(".gif");
+
+    // 1. 초기 상태를 먼저 설정
+    gsap.set(title, {
+        ...titleFrom,
+        opacity: 0
+    });
+
+    gsap.set(image, {
+        ...imageFrom,
+        opacity: 0
+    });
+
+    // 2. 타임라인 생성
+    const tl = gsap.timeline({
+        paused: true,
+        defaults: {
+            ease: "power3.out"
+        }
+    });
+
+    // 3. 제목 등장
+    tl.to(title, {
+        x: 0,
+        y: 0,
+        opacity: 1,
+        duration: 1
+    });
+
+    // 4. 제목이 완전히 나타난 후 이미지 등장
+    tl.to(image, {
+        x: 0,
+        y: 0,
+        opacity: 1,
+        duration: 1.2
+    }, "+=0.1");
+
+    // 5. 스크롤 진입 시 실행
+    // 5. 스크롤 최초 진입 시 한 번만 실행
+ScrollTrigger.create({
+    trigger: section,
+    start: "top 75%",
+    once: true,
+    onEnter: () => tl.play()
+});
+}
+
+
+// HOME
+createBrandWebAnimation(
+    ".brand-web-gif-1",
+    { x: -120 },
+    { x: 120 }
+);
+
+// SHOP
+createBrandWebAnimation(
+    ".brand-web-gif-2",
+    { x: 120 },
+    { x: -120 }
+);
+
+// MAGAZINE
+createBrandWebAnimation(
+    ".brand-web-gif-3",
+    { y: -100 },
+    { y: 100 }
+);
+
+
+
+
+
+
+// ========================================
+// BRAND NAME 인터랙션
+// ========================================
+
+const brandNameTimeline = gsap.timeline({
+    paused: true,
+    defaults: {
+        ease: "power3.out"
+    }
+});
+
+// 초기 상태
+gsap.set("#BRAND-NAME > h4", {
+    opacity: 0,
+    y: 30
+});
+
+gsap.set("#BRAND-NAME .logo", {
+    opacity: 0,
+    scale: 0.85
+});
+
+gsap.set("#BRAND-NAME .BRAND-NAME-content h5", {
+    opacity: 0,
+    y: 25
+});
+
+gsap.set("#BRAND-NAME .BRAND-NAME-content p", {
+    opacity: 0,
+    y: 25
+});
+
+gsap.set("#BRAND-NAME .brand-name-img", {
+    opacity: 0,
+    y: 60
+});
+
+// 1. BRAND NAME 제목
+brandNameTimeline.to("#BRAND-NAME > h4", {
+    opacity: 1,
+    y: 0,
+    duration: 0.8
+}, 0);
+
+// 2. 로고 확대 등장
+brandNameTimeline.to("#BRAND-NAME .logo", {
+    opacity: 1,
+    scale: 1,
+    duration: 1.2,
+    ease: "power2.out"
+}, 0.2);
+
+// 3. 브랜드 이름의 의미
+brandNameTimeline.to("#BRAND-NAME .BRAND-NAME-content h5", {
+    opacity: 1,
+    y: 0,
+    duration: 0.9
+}, 0.55);
+
+// 4. 브랜드 설명
+brandNameTimeline.to("#BRAND-NAME .BRAND-NAME-content p", {
+    opacity: 1,
+    y: 0,
+    duration: 1
+}, 0.8);
+
+// 5. 하단 이미지
+brandNameTimeline.to("#BRAND-NAME .brand-name-img", {
+    opacity: 1,
+    y: 0,
+    duration: 1.2
+}, 1.1);
+// ========================================
+// BRAND NAME 스크롤 인터랙션
+// ========================================
+
+let brandNameReady = true;
+
+// 실제 등장 시작
+ScrollTrigger.create({
+    trigger: "#BRAND-NAME",
+    start: "top 55%",
+
+    onEnter: () => {
+        if (!brandNameReady) return;
+
+        brandNameReady = false;
+        brandNameTimeline.restart();
+    }
+});
+
+// 충분히 위로 벗어났을 때만 재실행 준비
+ScrollTrigger.create({
+    trigger: "#BRAND-NAME",
+    start: "top 90%",
+
+    onLeaveBack: () => {
+        brandNameReady = true;
+    }
+});
+
+
+
+gsap.from("#BRAND-EXPERIENCE h3", {
+    x: "-5vw",           // 아래쪽에서 시작
+    opacity: 0,
+    duration: 0.9,
+    stagger: 0.15,      // 여기도 0.15초 간격으로 시간차 등장
+    delay: 0.3,         // 첫 번째 ul이 어느 정도 나오고 나서 뒤따라 나오도록 미세한 딜레이 추가!
+    ease: "power2.out",
+    scrollTrigger: {
+        trigger: "#BRAND-EXPERIENCE h3",
+        start: "top 85%",
+        toggleActions: "play reverse play reverse"
+    }
+});
+
+// ========================================
+// BRAND EXPERIENCE - H5 MASK REVEAL
+// ========================================
+
+gsap.fromTo(
+    "#BRAND-EXPERIENCE .ex-title-mask h5",
+    {
+        yPercent: 110
+    },
+    {
+        yPercent: 0,
+        duration: 1.1,
+        delay: 0.6,  
+        ease: "power3.out",
+        scrollTrigger: {
+            trigger: "#BRAND-EXPERIENCE .ex-title-mask",
+            start: "top 65%",
+            toggleActions: "play reverse play reverse"
+        }
+    }
+);
+
+
+gsap.from("#BRAND-EXPERIENCE p", {
+    x: "5vw",           // 아래쪽에서 시작
+    opacity: 0,
+    duration: 0.9,
+    stagger: 0.15,      // 여기도 0.15초 간격으로 시간차 등장
+    delay: 1.2,         // 첫 번째 ul이 어느 정도 나오고 나서 뒤따라 나오도록 미세한 딜레이 추가!
+    ease: "power2.out",
+    scrollTrigger: {
+        trigger: "#BRAND-EXPERIENCE p",
+        start: "top 85%",
+        toggleActions: "play reverse play reverse"
+    }
+});
+
+
+
+gsap.from("#INSIGHT h3", {
+    y: "5vw",           // 아래쪽에서 시작
+    opacity: 0,
+    duration: 0.9,
+    stagger: 0.15,      // 여기도 0.15초 간격으로 시간차 등장
+    delay: 0.4,         // 첫 번째 ul이 어느 정도 나오고 나서 뒤따라 나오도록 미세한 딜레이 추가!
+    ease: "power2.out",
+    scrollTrigger: {
+        trigger: "#INSIGHT h3",
+        start: "top 85%",
+        toggleActions: "play reverse play reverse"
+    }
+});
+
+gsap.from("#INSIGHT p", {
+    opacity: 0,
+    duration: 1.2,
+    stagger: 0.15,
+    delay: 0.7,
+    ease: "power2.out",
+    scrollTrigger: {
+        trigger: "#INSIGHT p",
+        start: "top 85%",
+        toggleActions: "play none none none"
+    }
+});
+
+
+
+
+// PACKAGE DESIGN - 위쪽 이미지 3장
+gsap.from("#PACKAGE-DESIGN .package-row-3", {
+    y: 45,
+    opacity: 0,
+    duration: 1.1,
+    ease: "power3.out",
+    scrollTrigger: {
+        trigger: "#PACKAGE-DESIGN .package-row-3",
+        start: "top 85%",
+        once: true
+    }
+});
+
+// PACKAGE DESIGN - 아래쪽 이미지 4장
+gsap.from("#PACKAGE-DESIGN .package-row-4", {
+    y: 45,
+    opacity: 0,
+    duration: 1.1,
+    ease: "power3.out",
+    scrollTrigger: {
+        trigger: "#PACKAGE-DESIGN .package-row-4",
+        start: "top 85%",
+        once: true
+    }
+});
+
+
+// PACKAGE DESIGN - 기획 설명 4개 순차 등장
+gsap.from("#PACKAGE-DESIGN .package-detail-item", {
+    x: -35,             // 왼쪽에서 시작
+    opacity: 0,
+    duration: 1,        // 각 칸 등장 시간
+    stagger: 0.2,       // 칸마다 0.2초 간격
+    ease: "power3.out",
+
+    scrollTrigger: {
+        trigger: "#PACKAGE-DESIGN .package-details",
+        start: "top 80%",
+        once: true
+    }
+});
+
+
+gsap.from("#PACKAGE-DESIGN .package-main", {
+    y: "8vw",           // 아래쪽에서 시작
+    opacity: 0,
+    duration: 0.9,
+    stagger: 0.15,      // 여기도 0.15초 간격으로 시간차 등장
+    delay: 0.32,         // 첫 번째 ul이 어느 정도 나오고 나서 뒤따라 나오도록 미세한 딜레이 추가!
+    ease: "power2.out",
+    scrollTrigger: {
+        trigger: "#PACKAGE-DESIGN .package-main",
+        start: "top 85%",
+        toggleActions: "play reverse play reverse"
+    }
+});
+
+
+
+gsap.from("#PACKAGE-DESIGN .liquid p ", {
+    x: "8vw",             // 왼쪽에서 시작
+    opacity: 0,
+    duration: 1,        // 각 칸 등장 시간
+    stagger: 0.2,       // 칸마다 0.2초 간격
+    delay: 0.6, 
+    ease: "power3.out",
+
+    scrollTrigger: {
+        trigger: "#PACKAGE-DESIGN .liquid p",
+        start: "top 80%",
+        toggleActions: "play reverse play reverse"
+    }
+});
+
+
+// PACKAGE DESIGN - LIQUID 이미지 등장
+gsap.from("#PACKAGE-DESIGN .liquid .liquid-image", {
+    y: "6vw",
+    opacity: 0,
+    duration: 1.1,
+    stagger: 0.3,
+    ease: "power3.out",
+
+    scrollTrigger: {
+        trigger: "#PACKAGE-DESIGN .liquid-img",
+        start: "top 80%",
+        once: true
+    }
+});
+
+
+gsap.from("#PACKAGE-DESIGN .package-main-2", {
+    y: "15vw",
+    opacity: 0,
+    duration: 1.1,
+    stagger: 0.3,
+    ease: "power3.out",
+
+    scrollTrigger: {
+        trigger: "#PACKAGE-DESIGN .package-main-2",
+        start: "top 80%",
+        toggleActions: "play reverse play reverse"
+    }
+});
+
+
+
+
+// DESIGN - LOGO GRID DRAWING
+
+fetch("img4/logo grid.svg")
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("SVG 파일을 불러오지 못했습니다.");
+        }
+        return response.text();
+    })
+    .then(svgText => {
+
+        const container = document.querySelector(
+            "#DESIGN .logo-grid-svg"
+        );
+
+        container.innerHTML = svgText;
+
+        const svg = container.querySelector("svg");
+
+        // 선으로 이루어진 가이드라인 선택
+        const lines = Array.from(
+            svg.querySelectorAll("path[stroke]")
+        );
+
+        // NOMERO 로고 이미지가 들어 있는 SVG 요소
+        const logo = svg.querySelector(
+            'rect[fill^="url(#pattern"]'
+        );
+
+        // 선의 길이를 계산해 처음에는 보이지 않도록 설정
+        lines.forEach(line => {
+            const length = line.getTotalLength();
+
+            gsap.set(line, {
+                strokeDasharray: length,
+                strokeDashoffset: length
+            });
+        });
+
+        // 로고 숨기기
+        if (logo) {
+            gsap.set(logo, {
+                opacity: 0
+            });
+        }
+
+        // 인터랙션 타임라인
+        const tl = gsap.timeline({
+    scrollTrigger: {
+        trigger: container,
+        start: "top 60%",
+        toggleActions: "play none none reverse",
+                // markers: true
+        markers: false
+    }
+});
+
+        // 1. 가이드라인이 하나씩 그려짐
+        tl.to(lines, {
+    strokeDashoffset: 0,
+    duration: 1.1,
+    stagger: 0.02,
+    ease: "power2.inOut"
+});
+
+        // 2. 로고 등장
+        if (logo) {
+            tl.to(logo, {
+                opacity: 1,
+                duration: 1,
+                ease: "power2.out"
+            }, "-=0.8");
+        }
+
+        // SVG 삽입 후 스크롤 위치 재계산
+        ScrollTrigger.refresh();
+
+    })
+    .catch(error => {
+        console.error(error);
+    });
