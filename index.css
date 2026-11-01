@@ -1119,6 +1119,10 @@ header.white-mode .logo-white { opacity: 1; }
     font-weight: 600;
 }
 
+#speech p strong {
+    font-weight: 400;
+}
+
 #speech .speech-1, 
 #speech .speech-2, 
 #speech .speech-3 {
@@ -1324,7 +1328,7 @@ header.white-mode .logo-white { opacity: 1; }
     /* border: 1px solid red; */
     /* background-color: #7D7D93; */
     position: relative;
-    margin-top: 7vw;
+    margin-top: 15vw;
 }
 
 #CONCEPT-2 .title h2 {
@@ -1464,10 +1468,10 @@ header.white-mode .logo-white { opacity: 1; }
 }
 
 #CONCEPT-3 .level-2 .goods{
-    width: 9.5vw;
+    width: 13vw;
     position: absolute;
-    left: 6.99vw;
-    top: 6.8vw;
+    left: 5.2vw;
+    top: 9vw;
 }
 
 
@@ -1548,6 +1552,664 @@ header.white-mode .logo-white { opacity: 1; }
 #CONCEPT-4 .concept-4-img img.active {
     opacity: 1;
 }
+
+
+
+#BRAND-EXPERIENCE{
+    width: 100%;
+    height: 30vw;
+    /* border: 1px solid red; */
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15vw;
+}
+
+#BRAND-EXPERIENCE h4{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#BRAND-EXPERIENCE .ex-dis{
+    display: flex;
+}
+
+#BRAND-EXPERIENCE .ex-dis h3{
+    font-size: 2.5vw;
+    line-height: 120%;
+    font-family: 'Paperozi';
+    color: #191938;
+    position: relative;
+    right: 15vw;
+}
+
+#BRAND-EXPERIENCE .ex-dis .ex-dis-right{
+    position: relative;
+    left: 12vw;
+}
+
+#BRAND-EXPERIENCE .ex-dis h5{
+    font-family: 'Paperozi';
+    font-size: 1.67vw;
+    font-weight: 500;
+    color: #191938;
+    margin-bottom: 1vw;
+}
+
+#BRAND-EXPERIENCE .ex-dis p{
+    font-family: 'Paperozi';
+    font-size: 1.04vw;
+    line-height: 170%;
+}
+
+
+#BRAND-EXPERIENCE .ex-title-mask {
+    overflow: hidden;
+    padding: 0;
+    margin-bottom: 0.8vw;
+}
+
+#BRAND-EXPERIENCE .ex-title-mask h5 {
+    display: block;
+    margin: 0;
+    padding: 0;
+    will-change: transform;
+}
+
+
+
+#DESK-RESEARCH{
+    width: 100%;
+    height: 50vw;
+    /* border: 1px solid red; */
+    display: flex;
+    flex-flow: column;
+    justify-content: baseline;
+    align-items: center;
+    margin-top: 10vw;
+}
+
+#DESK-RESEARCH h3{
+    font-size: 1.67vw;
+    font-family: 'Paperozi';
+    font-weight: 500;
+    text-align: center;
+    line-height: 150%;
+    color: #191938;
+    margin-bottom: 8vw;
+    margin-top: 5vw;
+}
+
+#DESK-RESEARCH .desk-graph{
+    display: flex;
+}
+
+
+#DESK-RESEARCH .desk-graph-1{
+    width: 22.92vw;
+    height: 25.02vw;
+    border: 0.08vw solid #191938;
+    padding: 2vw;
+    margin: 0.5vw;
+}
+
+
+#DESK-RESEARCH .desk-graph h6{
+    font-size: 0.83vw;
+    font-family: "Montserrat", sans-serif;
+    color: #7D7D93;
+    margin-bottom: 1.3vw;
+    position: relative;
+    left: 0.4vw;
+}
+
+#DESK-RESEARCH .desk-graph h4{
+    font-family: 'Paperozi';
+    font-size: 0.79vw;
+    font-weight: 500;
+    color: #191938;
+    margin: 0.4vw;
+}
+
+#DESK-RESEARCH .desk-graph h5{
+    font-family: 'Paperozi';
+    font-size:  0.99vw;
+    font-weight: 500;
+    margin-bottom: 1vw;
+    line-height: 150%;
+}
+
+
+#DESK-RESEARCH .desk-graph p{
+    font-family: 'Paperozi';
+    font-size: 0.78vw;
+    color: #7D7D93;
+    line-height: 170%;
+}
+
+#DESK-RESEARCH .line{
+    border: 0.052vw solid #191938;
+    margin-top: 1.7vw;
+    margin-bottom: 1.7vw;
+}
+
+#DESK-RESEARCH .desk-graph-1 .bar-1{
+    height: 0.8vw;
+    position: relative;
+    margin-bottom: 1vw;
+}
+
+
+#DESK-RESEARCH .desk-graph-1 .bar-1 .bar-gray{
+    background-color: #7D7D93;
+    width: 100%;
+    height: 0.8vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: 2vw;
+}
+
+#DESK-RESEARCH .desk-graph-1 .bar-1 .bar-navy{
+    background-color: #191938;
+    width: 100%;
+    height: 0.8vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    border-radius: 2vw;
+}
+
+#DESK-RESEARCH .desk-graph-1 .bar-2{
+    /* border: 1px solid red; */
+    height: 0.8vw;
+    position: relative;
+}
+
+#DESK-RESEARCH .desk-graph-1 .bar-2 .bar-gray{
+    background-color: #E1E6E9;
+    width: 100%;
+    height: 0.8vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: 2vw;
+}
+
+#DESK-RESEARCH .desk-graph-1 .bar-2 .bar-navy{
+    background-color: #7D7D93;
+    width: 67%;
+    height: 0.8vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    border-radius: 2vw;
+}
+
+#DESK-RESEARCH .desk-graph-2 .bar-2 .bar-navy{
+    background-color: #7D7D93;
+    width: 50%;
+    height: 0.8vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    border-radius: 2vw;
+}
+
+
+#DESK-RESEARCH .desk-graph-3{
+    width: 22.92vw;
+    height: 25.02vw;
+    border: 0.08vw solid #191938;
+    padding: 2vw;
+    margin: 0.5vw;
+}
+
+/* 원형 그래프와 범례 가로 정렬 */
+#DESK-RESEARCH .desk-graph-3 .grapg-3-top {
+    display: flex;
+    align-items: center;
+    gap: 1.8vw;
+    margin-top: 1vw;
+}
+
+/* 원형 그래프 */
+#DESK-RESEARCH .desk-graph-3 .circle {
+    width: 6.77vw;
+    height: 6.77vw;
+    border-radius: 50%;
+
+    background: conic-gradient(
+        #191938 0% 62%,
+        #E1E6E9 62% 100%
+    );
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    flex-shrink: 0;
+}
+
+/* 그래프 가운데 구멍 */
+#DESK-RESEARCH .desk-graph-3 .circle::before {
+    content: "";
+    position: absolute;
+
+    width: 70%;
+    height: 70%;
+    border-radius: 50%;
+    background-color: #ffff;
+}
+
+/* 가운데 퍼센트 */
+#DESK-RESEARCH .desk-graph-3 .circle span {
+    position: relative;
+    z-index: 1;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.5vw;
+    font-weight: 800;
+    color: #191938;
+}
+
+/* 범례 */
+#DESK-RESEARCH .desk-graph-3 .top-right h4 {
+    display: flex;
+    align-items: center;
+    gap: 0.5vw;
+}
+
+/* 범례 색상 사각형 */
+#DESK-RESEARCH .desk-graph-3 .top-right h4 span {
+    display: inline-block;
+    width: 0.65vw;
+    height: 0.65vw;
+    border-radius: 0.15vw;
+    background-color: #191938;
+}
+
+/* 두 번째 범례 */
+#DESK-RESEARCH .desk-graph-3 .top-right h4:nth-child(2) span {
+    background-color: #E1E6E9;
+}
+
+
+/* #DESK-RESEARCH .line{
+    position: relative;
+    top: 0.7vw;
+} */
+
+
+
+#DESK-RESEARCH .desk-graph-3 .line{
+    position: relative;
+    bottom: 0.6vw;
+}
+
+
+#DESK-RESEARCH .desk-graph-1 .line{
+    position: relative;
+    top: 1vw;
+}
+
+
+#DESK-RESEARCH .desk-graph-3 h5{
+    position: relative;
+    bottom: 1.3vw;
+}
+
+#DESK-RESEARCH .desk-graph-1 h5{
+    position: relative;
+    top: 0.5vw;
+}
+
+#DESK-RESEARCH .desk-graph-3 p{
+    position: relative;
+    bottom: 0.9vw;
+}
+
+#DESK-RESEARCH .desk-graph-1 p{
+    position: relative;
+    top: 0.65vw;
+}
+
+
+
+#INSIGHT{
+    width: 100vw;
+    height: 22vw;
+    /* border: 1px solid blue; */
+    position: relative;
+    right: 2.6vw;
+    padding: 3vw;
+    background-color: #191938;
+    color: #ffff;
+    margin-top: 15vw;
+}
+
+#INSIGHT h4{
+    position: relative;
+    top: 1.5vw;
+}
+#INSIGHT .INSIGHT-dis{
+    display: flex;
+    margin-top: 4vw;
+    /* padding: 3vw; */
+}
+
+#INSIGHT h3{
+    font-size: 2.5vw;
+    font-family: "Montserrat", sans-serif;
+    line-height: 120%;
+    margin-right: 12vw;
+    font-weight: 600;
+    /* margin-left: 3vw; */
+}
+
+#INSIGHT p{
+    font-family: 'Paperozi';
+    font-weight: 300;
+    line-height: 170%;
+    position: relative;
+    left: 6vw;
+    top: 0.5vw;
+}
+
+
+
+
+#BRAND-NAME{
+    width: 100%;
+    height: 80vw;
+    /* border: 1px solid red; */
+    position: relative;
+    margin-top: 15vw;
+}
+
+#BRAND-NAME .BRAND-NAME-content{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5vw;
+}
+
+#BRAND-NAME .BRAND-NAME-content .logo{
+    width: 14.95vw;
+    margin-bottom: 2.5vw;
+}
+
+#BRAND-NAME .BRAND-NAME-content h5{
+    font-family: 'Paperozi';
+    font-size: 1.20vw;
+    font-weight: 600;
+    margin-bottom: 2vw;
+}
+
+#BRAND-NAME .BRAND-NAME-content p{
+    font-size: 1.04vw;
+    font-family: 'Paperozi';
+    text-align: center;
+    line-height: 141%;
+    margin-bottom: 8vw;
+    font-weight: 400;
+}
+
+#BRAND-NAME .brand-name-img{
+    width: 100%;
+}
+
+
+
+
+#BRAND-SLOGAN{
+    width: 100%;
+    height: 40vw;
+    /* border: 1px solid red; */
+    position: relative;
+    margin-top: 10vw;
+}
+
+
+#BRAND-SLOGAN .BRAND-SLOGAN-content{
+    display: flex;
+    margin-top: 3vw;
+}
+
+
+#BRAND-SLOGAN .BRAND-SLOGAN-content h5{
+    font-size: 2.5vw;
+    font-family: "Montserrat", sans-serif;
+    line-height: 120%;
+}
+
+#BRAND-SLOGAN .BRAND-SLOGAN-content .slogan-right{
+    display: flex;
+    flex-flow: column;
+    justify-content: first baseline;
+    position: absolute;
+    right: 2vw;
+}
+
+
+#BRAND-SLOGAN .BRAND-SLOGAN-content .slogan-right h6{
+    font-size: 1.25vw;
+    font-family: 'Paperozi';
+    font-weight: 600;
+    line-height: 147%;
+    margin-bottom: 0.8vw;
+}
+
+
+#BRAND-SLOGAN .BRAND-SLOGAN-content .slogan-right p{
+    font-size: 1.25vw;
+    font-family: 'Paperozi';
+    line-height: 170%;
+    font-weight: 300;
+}
+
+
+/* 키워드 전체 영역 */
+#BRAND-SLOGAN .slogan-keywords {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+    width: 100%;
+    height: 10.4vw;
+
+    border-top: 0.052vw solid #191938;
+    border-bottom: 0.052vw solid #191938;
+
+    position: absolute;
+    bottom: 9vw;
+    left: 0;
+}
+
+/* 개별 키워드 박스 */
+#BRAND-SLOGAN .keyword-item {
+    padding: 3.5vw 1.7vw;
+
+    border-right: 0.052vw solid #191938;
+}
+
+/* 마지막 박스 */
+#BRAND-SLOGAN .keyword-item:last-child {
+    border-right: none;
+}
+
+/* 영어 키워드 */
+#BRAND-SLOGAN .keyword-item h5 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.4vw;
+    font-weight: 700;
+    color: #191938;
+
+    margin-bottom: 0.5vw;
+}
+
+/* 한국어 설명 */
+#BRAND-SLOGAN .keyword-item p {
+    font-family: 'Paperozi';
+    font-size: 0.83vw;
+    font-weight: 500;
+    color: #7D7D93;
+}
+
+/* 모든 키워드 기본 배경 */
+#BRAND-SLOGAN .keyword-item {
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+}
+
+/* 마지막 CURATED도 처음에는 배경 없음 */
+#BRAND-SLOGAN .keyword-item.curated {
+    background-color: transparent;
+}
+
+/* 활성화된 키워드 */
+#BRAND-SLOGAN .keyword-item.active {
+    background-color: #C8E35F;
+}
+
+/* 활성화된 키워드의 설명 색상 */
+#BRAND-SLOGAN .keyword-item.active p {
+    color: #191938;
+}
+
+
+
+
+/* BRAND VALUE 전체 */
+#BRAND-VALUE {
+    width: 100vw;
+    height: 60vw;
+    position: relative;
+    /* border: 1px solid red; */
+    display: flex;
+    flex-flow: column;
+    /* justify-content: center; */
+    align-items: center;
+    margin-top: 14vw;
+    position: relative;
+    right: 2.6vw;
+}
+
+/* 이미지 4개 가로 정렬 */
+#BRAND-VALUE .brand-value-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    width: 100%;
+    height: 52vw;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+/* 개별 이미지 카드 */
+#BRAND-VALUE .value-item {
+    position: relative;
+    overflow: hidden;
+}
+
+#BRAND-VALUE .value-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    filter: grayscale(100%) brightness(0.75);
+    transform: scale(1);
+
+    transition:
+        filter 0.7s ease,
+        transform 1s ease;
+}
+
+#BRAND-VALUE .value-item:hover img {
+    filter: grayscale(0%) brightness(1);
+    transform: scale(1.05);
+}
+
+/* 텍스트 전체 영역 */
+#BRAND-VALUE .value-content {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 7vw 2vw 3vw;
+    color: #fff;
+
+    pointer-events: none;
+}
+
+/* 위쪽 설명 */
+#BRAND-VALUE .value-top span,
+#BRAND-VALUE .value-bottom span {
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.7vw;
+    font-weight: 400;
+}
+
+#BRAND-VALUE .value-content h5 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.15vw;
+    font-weight: 500;
+    letter-spacing: -5%;
+    margin-top: 1vw;
+    margin-bottom: 0.7vw;
+}
+
+#BRAND-VALUE .value-content p {
+    font-family: 'Paperozi';
+    font-size: 1.20vw;
+    font-weight: 300;
+    line-height: 141%;
+}
+
+/* 중간 세로 화살표 */
+#BRAND-VALUE .value-arrow {
+    flex: none;          /* 자동으로 늘어나는 것 방지 */
+    width: 0.052vw;
+    height: 23vw;  
+
+    background-color: #fff;
+
+    margin: 2vw 0 1.5vw 0.3vw;
+    position: relative;
+    transform-origin: top;
+}
+
+/* 화살표 끝부분 */
+#BRAND-VALUE .value-arrow::after {
+    content: "";
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    width: 0.7vw;
+    height: 0.7vw;
+
+    border-left: 0.052vw solid #fff;
+    border-bottom: 0.052vw solid #fff;
+
+    transform: skewY(-45deg);
+    transform-origin: bottom left;
+    
+}
 /* ==========================================
    10. GOAL SECTION
 ========================================== */
@@ -1560,7 +2222,7 @@ header.white-mode .logo-white { opacity: 1; }
     flex-flow: column;
     justify-content: center;
     align-items: center;
-    margin-top: 8vw;
+    margin-top: 15vw;
 }
 
 #GOAL h4 {
@@ -1738,12 +2400,140 @@ header.white-mode .logo-white { opacity: 1; }
 
 
 
+#USER-JOURNEY {
+    width: 100%;
+    height: 38vw;
+    position: relative;
+    /* border: 1px solid red; */
+}
+
+/* 상단 설명 */
+#USER-JOURNEY h3 {
+    font-family: 'Paperozi';
+    font-size: 1.67vw;
+    font-weight: 500;
+    line-height: 150%;
+    color: #191938;
+
+    margin-top: 7vw;
+}
+
+/* 타임라인 전체 */
+#USER-JOURNEY .journey-container {
+    width: 100%;
+    margin-top: 7vw;
+}
+
+/* 가로선과 원형 포인트 */
+#USER-JOURNEY .journey-timeline {
+    width: 100%;
+    height: 0.052vw;
+    background-color: #7D7D93;
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
+
+    position: relative;
+}
+
+/* 애니메이션으로 그려지는 선 */
+#USER-JOURNEY .journey-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: #191938;
+
+    transform: scaleX(0);
+    transform-origin: left center;
+    z-index: 0;
+}
+
+/* 원형 포인트 */
+#USER-JOURNEY .journey-dot {
+    width: 1vw;
+    height: 1vw;
+    border-radius: 50%;
+    background-color: #191938;
+
+    margin-left: 1.7vw;
+    position: relative;
+    bottom: 0.45vw;
+    z-index: 1;
+}
+
+/* 4, 5번째 원형 포인트 */
+#USER-JOURNEY .journey-dot.active {
+    background-color: #C8E35F;
+}
+
+/* 아래 5개 설명 영역 */
+#USER-JOURNEY .journey-steps {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+
+    width: 100%;
+    margin-top: 2.7vw;
+
+    border-top: 0.052vw solid #191938;
+    border-bottom: 0.052vw solid #191938;
+}
+
+/* 개별 단계 */
+#USER-JOURNEY .journey-item {
+    padding: 2.3vw;
+    min-width: 0;
+    border-right: 0.052vw solid #191938;
+    
+}
+
+/* 마지막 세로선 제거 */
+#USER-JOURNEY .journey-item:last-child {
+    border-right: none;
+}
+
+/* 단계 번호 */
+#USER-JOURNEY .journey-item span {
+    display: block;
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.83vw;
+    font-weight: 700;
+    color: #7D7D93;
+
+    margin-bottom: 0.7vw;
+}
+
+/* 영어 단계명 */
+#USER-JOURNEY .journey-item h5 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.5vw;
+    font-weight: 700;
+    color: #191938;
+
+    margin-bottom: 1.3vw;
+}
+
+/* 한국어 설명 */
+#USER-JOURNEY .journey-item p {
+    font-family: 'Paperozi';
+    font-size: 0.83vw;
+    font-weight: 400;
+    line-height: 170%;
+    color: #191938;
+}
+
+
+
 #value{
     width: 100%;
     height: 73vw;
     /* background-color: #7D7D93; */
     position: relative;
-    margin-top: 11vw;
+    margin-top: 15vw;
 }
 
 #value h2{
@@ -2121,7 +2911,7 @@ header.white-mode .logo-white { opacity: 1; }
 
 #DESIGN{
     width: 100%;
-    height: 103vw;
+    height: 170vw;
     /* background-color: #d2d2d2; */
     position: relative;
     display: flex;
@@ -2129,15 +2919,97 @@ header.white-mode .logo-white { opacity: 1; }
     justify-content: center;
     align-items: center;
     margin-top: 17vw;
+    /* border: 1px solid red; */
 }
 
 #DESIGN h4{
     position: absolute;
     top: 0;
+    left: 0;
+}
+
+
+#DESIGN .logo-sys{
+    display: flex;
+    flex-flow: column;
+    /* border: 1px solid red; */
+    position: absolute;
+    top: 8vw;
+    right: 6vw;
+}
+
+
+#DESIGN .logo-sys .circle{
+    width: 2.34vw;
+    height: 2.34vw;
+    background-color: #191938;
+    border-radius: 100%;
+    margin-bottom: 1vw;
+}
+
+#DESIGN .logo-sys h1{
+    font-size: 5vw;
+    font-family: "Montserrat", sans-serif;
+    line-height: 90%;
+    margin-bottom: 3vw;
+    letter-spacing: -5%;
+}
+
+#DESIGN .logo-sys p{
+    font-size: 1.04vw;
+    font-family: 'Paperozi';
+    line-height: 165%;
+    color: #191938;
+    margin-bottom: 3vw;
+}
+
+/* #DESIGN .logo-sys img{
+    width: 48vw;
+} */
+
+
+/* LOGO SYSTEM SVG */
+#DESIGN .logo-grid-svg {
+    width: 48vw;
+}
+
+#DESIGN .logo-grid-svg svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+#DESIGN .color{
+    /* border: 1px solid red; */
+    display: flex;
+    flex-flow: column;
+    align-items: first baseline;
+    width: 20%;
+    position: absolute;
+    left: 23.96vw;
+    top: 55vw;
+    z-index: 1;
+}
+
+#DESIGN .color h1{
+    font-size: 5vw;
+    font-family: "Montserrat", sans-serif;
+    line-height: 90%;
+    letter-spacing: -5%;
+    margin-top: 1.04vw;
 }
 
 #DESIGN .color img{
     width: 5.63vw;
+}
+
+#DESIGN .color-txt{
+    font-family: 'Paperozi';
+    font-size: 1.04vw;
+    line-height: 141%;
+    position: relative;
+    left: 17vw;
+    bottom: 16vw;
 }
 
 
@@ -2146,7 +3018,8 @@ header.white-mode .logo-white { opacity: 1; }
     /* border: 1px solid red; */
     position: absolute;
     left: 0;
-    top: 24.11vw;
+    /* top: 24.11vw; */
+    top: 73vw;
 }
 #DESIGN ul li{
     position: relative;
@@ -2219,30 +3092,12 @@ header.white-mode .logo-white { opacity: 1; }
     color: #FFFFFF;
 }
 
-#DESIGN .color{
-    /* border: 1px solid red; */
-    display: flex;
-    flex-flow: column;
-    align-items: first baseline;
-    width: 20%;
-    position: absolute;
-    left: 23.96vw;
-    top: 6.98vw;
-    z-index: 1;
-}
 
-#DESIGN .color h1{
-    font-size: 5vw;
-    font-family: "Montserrat", sans-serif;
-    line-height: 90%;
-    letter-spacing: -5%;
-    margin-top: 1.04vw;
-}
 
 #DESIGN .typo{
     position: absolute;
     right: 23.96vw;
-    top: 70.21vw;
+    top: 115.21vw;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -2264,6 +3119,16 @@ header.white-mode .logo-white { opacity: 1; }
     text-align: right;
 }
 
+
+#DESIGN .typo-txt{
+    font-family: 'Paperozi';
+    font-size: 1.04vw;
+    line-height: 141%;
+    position: relative;
+    top: 40vw;
+    right: 22vw;
+}
+
 #DESIGN .typo-list{
     z-index: 1;
     /* border: 1px solid red; */
@@ -2272,7 +3137,7 @@ header.white-mode .logo-white { opacity: 1; }
     justify-content: center;
     align-items: first baseline;
     position: absolute;
-    top: 89vw;
+    top: 135vw;
     right: 2.14vw;
 }
 
@@ -2331,6 +3196,350 @@ header.white-mode .logo-white { opacity: 1; }
 }
 
 
+
+
+
+
+
+/* PACKAGE DESIGN 전체 */
+#PACKAGE-DESIGN {
+    width: 100%;
+    height: 294vw;
+    position: relative;
+    padding-bottom: 3vw;
+    /* border: 5px solid red; */
+}
+
+/* 상단 기획 설명 */
+#PACKAGE-DESIGN .package-intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    margin-top: 5vw;
+    margin-bottom: 4vw;
+}
+
+/* 왼쪽 제목 */
+#PACKAGE-DESIGN .package-intro h3 {
+    font-family: 'Paperozi';
+    font-size: 2.5vw;
+    font-weight: 600;
+    line-height: 150%;
+    color: #191938;
+}
+
+/* 오른쪽 설명 */
+#PACKAGE-DESIGN .package-intro p {
+    width: 42%;
+    font-family: 'Paperozi';
+    font-size: 1.04vw;
+    font-weight: 400;
+    line-height: 170%;
+    color: #191938;
+}
+
+/* 첫 번째 이미지 행 */
+#PACKAGE-DESIGN .package-row-3 {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.7vw;
+
+    width: 100%;
+    margin-bottom: 0.7vw;
+}
+
+/* 두 번째 이미지 행 */
+#PACKAGE-DESIGN .package-row-4 {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.7vw;
+
+    width: 100%;
+}
+
+/* 이미지 박스 공통 */
+#PACKAGE-DESIGN .package-image {
+    position: relative;
+    overflow: hidden;
+    /* background-color: #F5F5F5; */
+    /* border: 1px solid #191938; */
+}
+
+/* 첫 번째 행 이미지 높이 */
+#PACKAGE-DESIGN .package-row-3 .package-image {
+    height: 33.28vw;
+}
+
+/* 두 번째 행 이미지 높이 */
+#PACKAGE-DESIGN .package-row-4 .package-image {
+    height: 22.92vw;
+}
+
+/* 이미지 */
+#PACKAGE-DESIGN .package-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transform: scale(1.03);
+    transition: transform 0.8s ease;
+}
+
+/* 두 번째 줄 이미지만 하단을 기준으로 확대 */
+/* #PACKAGE-DESIGN .package-row-4 .package-image img {
+    transform-origin: center center;
+} */
+
+#PACKAGE-DESIGN .package-row-4 img{
+    position: relative;
+    top: 0.5vw;
+}
+
+#PACKAGE-DESIGN .package-image:hover img {
+    transform: scale(1.2);
+}
+
+#PACKAGE-DESIGN .package-image span {
+    transition: transform 0.5s ease;
+}
+
+#PACKAGE-DESIGN .package-image:hover span {
+    transform: translateY(-0.5vw);
+}
+
+
+/* 이미지 하단 텍스트 */
+#PACKAGE-DESIGN .package-image span {
+    position: absolute;
+    bottom: 1.4vw;
+    left: 1.8vw;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.97vw;
+    font-weight: 700;
+    color: #191938;
+}
+
+
+/* PACKAGE DESIGN - 이미지 외곽선 고정 */
+#PACKAGE-DESIGN .package-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    border: 1px solid #191938;
+    box-sizing: border-box;
+
+    pointer-events: none;
+    z-index: 2;
+}
+
+
+/* 하단 설명 전체 */
+#PACKAGE-DESIGN .package-details {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    width: 100%;
+    margin-top: 4.3vw;
+
+    border-top: 1px solid #191938;
+    border-bottom: 1px solid #191938;
+}
+
+/* 개별 설명 박스 */
+#PACKAGE-DESIGN .package-detail-item {
+    min-width: 0;
+    padding: 1.7vw;
+
+    border-right: 1px solid #191938;
+}
+
+/* 마지막 세로선 제거 */
+#PACKAGE-DESIGN .package-detail-item:last-child {
+    border-right: none;
+}
+
+/* 설명 번호 */
+#PACKAGE-DESIGN .package-detail-item span {
+    display: block;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.73vw;
+    font-weight: 700;
+    color: #7D7D93;
+
+    margin-bottom: 0.8vw;
+}
+
+/* 설명 제목 */
+#PACKAGE-DESIGN .package-detail-item h5 {
+    font-family: 'Paperozi';
+    font-size: 1.15vw;
+    font-weight: 700;
+    color: #191938;
+
+    margin-bottom: 1vw;
+}
+
+/* 설명 본문 */
+#PACKAGE-DESIGN .package-detail-item p {
+    font-family: 'Paperozi';
+    font-size: 0.83vw;
+    font-weight: 300;
+    line-height: 175%;
+    color: #191938;
+}
+
+
+
+/* LIQUID PACKAGE 전체 */
+#PACKAGE-DESIGN .liquid {
+    width: 100%;
+    height: 75vw;
+    position: relative;
+    left: 3vw;
+    margin-top: 5vw;
+}
+
+/* 이미지 영역 */
+#PACKAGE-DESIGN .liquid-img {
+    display: grid;
+    grid-template-columns: 38.5% 38.5%;
+    justify-content: space-between;
+
+    width: 100%;
+    height: 60vw;
+    /* border: 1px solid red; */
+}
+
+/* 이미지 박스 공통 */
+#PACKAGE-DESIGN .liquid-image {
+    position: relative;
+    overflow: hidden;
+    background-color: #F5F5F5;
+}
+
+/* 왼쪽 이미지 */
+#PACKAGE-DESIGN .liquid-left {
+    width: 24vw;
+    height: 38.5vw;
+    margin-top: 0;
+}
+
+#PACKAGE-DESIGN .liquid-right {
+    width: 24vw;
+    height: 38.5vw;
+    margin-top: 19vw;
+    position: relative;
+    right: 31vw;
+}
+
+/* 이미지 */
+#PACKAGE-DESIGN .liquid-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+#PACKAGE-DESIGN .liquid-left,
+#PACKAGE-DESIGN .liquid-right {
+    height: 38vw;
+    aspect-ratio: auto;
+}
+
+#PACKAGE-DESIGN .liquid-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: initial;
+}
+
+
+/* 이미지 하단 라벨 */
+#PACKAGE-DESIGN .liquid-image span {
+    position: absolute;
+    bottom: 1.7vw;
+    left: 1.5vw;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.83vw;
+    font-weight: 700;
+    color: #191938;
+}
+
+/* 오른쪽 상단 설명 */
+#PACKAGE-DESIGN .liquid > p {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 44%;
+
+    font-family: 'Paperozi';
+    font-size: 0.83vw;
+    font-weight: 400;
+    line-height: 175%;
+    color: #191938;
+}
+
+
+#PACKAGE-DESIGN .liquid-image img {
+    transition: transform 0.8s ease;
+}
+
+#PACKAGE-DESIGN .liquid-image:hover img {
+    transform: scale(1.05);
+}
+
+#PACKAGE-DESIGN .liquid-image span {
+    transition: transform 0.5s ease;
+}
+
+#PACKAGE-DESIGN .liquid-image:hover span {
+    transform: translateY(-0.5vw);
+}
+
+/* LIQUID PACKAGE - 고정 외곽선 */
+#PACKAGE-DESIGN .liquid-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    border: 1px solid #191938;
+    box-sizing: border-box;
+
+    pointer-events: none;
+    z-index: 2;
+}
+
+#PACKAGE-DESIGN .package-main{
+    width: 100%;
+    margin-top: 5vw;
+    margin-bottom: 3vw;
+}
+
+
+#PACKAGE-DESIGN .package-main-2{
+    width: 100%;
+    margin-top: 5vw;
+    margin-bottom: 3vw;
+    position: relative;
+    bottom: 8vw;
+}
+
+/* #PACKAGE-DESIGN ,package-main{
+    width: 126.39vw;
+} */
+/* ==========================================
+   📐 기존 디자인 스타일 레이아웃 (유지 및 정돈)
+========================================== */
+
 #SERVICE {
     width: 100%;
     height: 73vw;
@@ -2339,11 +3548,6 @@ header.white-mode .logo-white { opacity: 1; }
     margin-top: 15vw;
 }
 
-
-
-/* ==========================================
-   📐 기존 디자인 스타일 레이아웃 (유지 및 정돈)
-========================================== */
 #SERVICE .title {
     display: flex;
     justify-content: space-between;
@@ -2599,33 +3803,35 @@ header.white-mode .logo-white { opacity: 1; }
 }
 
 /* 1. 평소 상태: display: none을 버리고, 모든 화면을 3차원으로 한곳에 포개어 둡니다. */
-.service-1, .service-2, .service-3 {
-    position: absolute; /* ★ 핵심: 1, 2, 3번 박스를 한자리에 겹쳐놓아서 display 변환 시 충격을 없앱니다. */
+/* SERVICE 탭 화면 */
+#SERVICE .service-1,
+#SERVICE .service-2,
+#SERVICE .service-3 {
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    
-    /* 평소에는 투명하게 숨겨두고 클릭 이벤트를 받지 못하게 설정 */
+
     opacity: 0;
     visibility: hidden;
-    
-    /* ★ 핵심: 투명도가 바뀔 때 0.4초 동안 아주 부드럽고 고급스럽게 페이드 효과를 줌 */
-    transition: opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.4s linear;
+    pointer-events: none;
 }
 
-/* 2. 자바스크립트가 active 클래스를 붙여준 화면만 스르륵 등장! */
-.service-1.active, 
-.service-2.active, 
-.service-3.active {
+/* 활성화된 화면 */
+#SERVICE .service-1.active,
+#SERVICE .service-2.active,
+#SERVICE .service-3.active {
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
 }
 
-/* 숫자 버튼들에 마우스 올렸을 때 클릭 가능하도록 손가락 모양 추가 */
+/* 숫자 버튼 */
 #SERVICE .title ul li {
-    cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background-color 0.35s ease,
+                color 0.35s ease,
+                border-radius 0.35s ease;
 }
 
 /* 활성화된 숫자 버튼 동그라미 스타일 */
@@ -2643,7 +3849,7 @@ header.white-mode .logo-white { opacity: 1; }
 
 #phone-page{
     width: 100%;
-    height: 90vw;
+    height: 120vw;
     /* border: 10px solid red; */
     position: relative;
     margin-top: 14vw;
@@ -2656,6 +3862,13 @@ header.white-mode .logo-white { opacity: 1; }
     top: 6.15vw;
     left: 16.35vw;
 } */
+
+
+#phone-page .phone-page-content{
+    position: relative;
+    margin-top: 20vw;
+    /* border: 10px solid red; */
+}
 
 
 #phone-page .app-mockup{
@@ -2960,7 +4173,7 @@ header.white-mode .logo-white { opacity: 1; }
 
 
 #phone-page-2 img:nth-child(3){
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     position: absolute;
     left: 58.39vw;
     top: 46.82vw;
@@ -3336,6 +4549,438 @@ header.white-mode .logo-white { opacity: 1; }
 }
 
 
+
+/* BRAND GOODS 전체 */
+#BRAND-GOODS {
+    width: 100%;
+    position: relative;
+    /* overflow: hidden; */
+    margin-top: 18vw;
+    padding-bottom: 5vw;
+}
+
+/* 상단 제목 + 설명 */
+#BRAND-GOODS .goods-intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    margin-top: 5vw;
+    margin-bottom: 4vw;
+}
+
+#BRAND-GOODS .goods-intro h3 {
+    font-family: 'Paperozi';
+    font-size: 2.5vw;
+    font-weight: 700;
+    line-height: 135%;
+    color: #191938;
+}
+
+#BRAND-GOODS .goods-intro p {
+    width: 40%;
+    font-family: 'Paperozi';
+    font-size: 1.04vw;
+    font-weight: 400;
+    line-height: 170%;
+    color: #191938;
+    position: relative;
+    top: 5vw;
+}
+
+/* 제목 한 줄씩 마스킹 */
+#BRAND-GOODS .goods-title-line {
+    display: block;
+    overflow: hidden;
+}
+
+/* 실제 움직이는 텍스트 */
+#BRAND-GOODS .goods-title-line span {
+    display: block;
+    will-change: transform;
+}
+
+/* 오른쪽 설명 */
+#BRAND-GOODS .goods-intro p {
+    will-change: transform, opacity;
+}
+
+/* 슬라이더 영역 */
+#BRAND-GOODS .goods-slider {
+    width: 100vw;
+    overflow: hidden;
+    /* border: 1px solid red; */
+    position: relative;
+    right: 2.6vw;
+    top: 5vw;
+}
+
+/* 움직이는 트랙 */
+#BRAND-GOODS .goods-track {
+    display: flex;
+    gap: 0.7vw;
+    width: max-content;
+    will-change: transform;
+    /* border: 1px solid red; */
+
+}
+
+/* 개별 이미지 카드 */
+#BRAND-GOODS .goods-item {
+    width: 47vw; /* 기존 32vw → 47vw */
+    flex-shrink: 0;
+}
+
+/* 이미지 박스 */
+#BRAND-GOODS .goods-img {
+    width: 100%;
+    height: 33vw; /* 기존 22.3vw → 33vw */
+    overflow: hidden;
+    background-color: #F5F5F5;
+}
+
+/* 이미지 */
+#BRAND-GOODS .goods-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.8s ease;
+}
+
+/* 이미지 호버 */
+#BRAND-GOODS .goods-item:hover img {
+    transform: scale(1.05);
+}
+
+/* 이미지 아래 영어 제목 */
+#BRAND-GOODS .goods-item h5 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.83vw;
+    font-weight: 700;
+    color: #191938;
+    margin-top: 1vw;
+    margin-bottom: 0.3vw;
+}
+
+/* 이미지 아래 한글 설명 */
+#BRAND-GOODS .goods-item p {
+    font-family: 'Paperozi';
+    font-size: 0.73vw;
+    font-weight: 400;
+    line-height: 160%;
+    color: #7D7D93;
+}
+
+
+#BRAND-GOODS .line{
+    width: 95vw;
+    border: 0.052vw solid #191938;
+    margin-top: 9vw;
+}
+
+
+
+/* 전체 섹션 */
+#ECO-EDITORIAL {
+    width: 100%;
+    /* height: 90vw; */
+    /* border: 1px solid red; */
+    position: relative;
+    background-color: #fff;
+    overflow: hidden;
+    margin-top: 3vw;
+}
+
+/* 상단 타이틀 */
+#ECO-EDITORIAL .eco-heading {
+    display: flex;
+    align-items: flex-start;
+    gap: 5vw;
+
+    padding: 4vw 2vw 0;
+}
+
+/* 네이비 점 */
+#ECO-EDITORIAL .eco-dot {
+    width:2.34vw;
+    height: 2.34vw;
+    background-color: #191938;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 0.5vw;
+    position: absolute;
+    left: 0;
+    top: 3.5vw;
+}
+
+/* 상단 영문 */
+#ECO-EDITORIAL .eco-heading h3 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 4.38vw;
+    font-weight: 600;
+    line-height: 99%;
+    letter-spacing: -5%;
+    color: #191938;
+    position: relative;
+    left: 13.5vw;
+}
+
+/* 메인 비주얼 */
+#ECO-EDITORIAL .eco-visual {
+    position: relative;
+    width: 100%;
+    height: 77vw;
+    /* border: 5px solid red; */
+}
+
+/* ECC + 이미지 + OO */
+#ECO-EDITORIAL .eco-main {
+    position: absolute;
+    top: -3vw;
+    left: 0;
+
+    width: 100%;
+    height: 27vw;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 2vw;
+    /* border: 1px solid red; */
+}
+
+/* ECC / OO 텍스트 */
+#ECO-EDITORIAL .eco-main span {
+    font-family: "Montserrat", sans-serif;
+    font-size: 15vw;
+    font-weight: 600;
+    line-height: 0.8;
+    letter-spacing: -5%;
+    color: #191938;
+    position: relative;
+    /* top: 19.5vw; */
+    top: 29vw;
+}
+
+
+#ECO-EDITORIAL .eco-text-left{
+    position: relative;
+    right: 5.7vw;
+}
+
+#ECO-EDITORIAL .eco-text-right{
+    position: relative;
+    left: 4.2vw;
+}
+/* 가운데 세로 이미지 */
+#ECO-EDITORIAL .eco-main-img {
+    width: 28vw;
+    /* height: 50vw; */
+    /* background-color: #D9D9D9; */
+    /* overflow: hidden; */
+    position: relative;
+    top: 30vw;
+}
+
+/* 이미지 */
+#ECO-EDITORIAL .eco-main-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* 별 그래픽 */
+#ECO-EDITORIAL .eco-star {
+    position: absolute;
+    top: 56vw;
+    left: 33%;
+    font-size: 7vw;
+    font-weight: 300;
+    color: #191938;
+
+    transform-origin: center center; /* 추가 */
+}
+
+/* 하단 영문 슬로건 */
+#ECO-EDITORIAL .eco-bottom-text {
+    position: absolute;
+    right: 12%;
+    bottom: 0;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 4.38vw;
+    font-weight: 600;
+    line-height: 99%;
+    letter-spacing: -5%;
+    color: #191938;
+}
+
+#ECO-EDITORIAL {
+    overflow: hidden;
+}
+
+/* 가운데 이미지 */
+#ECO-EDITORIAL .eco-main-img {
+    overflow: hidden;
+}
+
+/* 하단 이미지 3개 */
+#eco-bottom-images {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    /* border: 1px solid blue; */
+    width: 100vw;
+    position: relative;
+    right: 2.6vw;
+    margin-top: 4vw;
+}
+
+/* 이미지 박스 */
+#eco-bottom-images .eco-img {
+    height: 33.28vw;
+    background-color: #D9D9D9;
+    overflow: hidden;
+}
+
+/* 가운데 이미지 색상 (임시) */
+#eco-bottom-images .eco-img:nth-child(2) {
+    background-color: #AFAFAF;
+}
+
+/* 이미지 공통 */
+#eco-bottom-images .eco-img img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#eco-bottom-images .eco-img {
+    overflow: hidden;
+}
+
+/* 이미지 호버 확대 */
+#eco-bottom-images .eco-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+
+    transition: transform 0.8s ease;
+}
+
+#eco-bottom-images .eco-img:hover img {
+    transform: scale(1.05);
+}
+
+
+#nomero-brand-web{
+    width: 100%;
+    height: 200vw;
+    /* border: 1px solid red; */
+    position: relative;
+    margin-top: 24vw;
+}
+
+
+#nomero-brand-web .brand-web-txt{
+    display: flex;
+}
+
+
+#nomero-brand-web .brand-web-txt h3{
+    font-size: 2.60vw;
+    font-family: 'Paperozi';
+    color: #191938;
+    letter-spacing: -5%;
+    margin-bottom: 1vw;
+}
+
+
+#nomero-brand-web .brand-web-txt .brand-web-left p{
+    font-size: 1.04vw;
+    letter-spacing: -5%;
+    color: #191938;
+    font-weight: 600;
+    font-family: 'Paperozi';
+}
+
+#nomero-brand-web .brand-web-txt .brand-web-right{
+    font-size: 1.04vw;
+    letter-spacing: -5%;
+    color: #191938;
+    font-weight: 400;
+    font-family: 'Paperozi';
+    line-height: 171%;
+    position: relative;
+    left: 17vw;
+    top: 0.18vw;
+}
+
+#nomero-brand-web h1{
+    font-family: "Montserrat", sans-serif;
+    font-size: 6.72vw;
+    letter-spacing: -5%;
+    font-weight: 600;
+}
+
+#nomero-brand-web .gif{
+    width: 70vw;
+}
+
+#nomero-brand-web .brand-web-gif-1{
+    display: flex;
+    margin-top: 20vw;
+}
+
+
+#nomero-brand-web .brand-web-gif-1 img{
+    position: relative;
+    left: 4vw;
+    top: 1.7vw;
+}
+
+#nomero-brand-web .brand-web-gif-2{
+    display: flex;
+    margin-top: 13vw;
+}  
+
+#nomero-brand-web .brand-web-gif-2 h1{
+    position: relative;
+    left: 4vw;
+    bottom: 1.8vw;
+}
+
+#nomero-brand-web .brand-web-gif-3{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10vw;
+}
+
+#nomero-brand-web .brand-web-gif-3 h1{
+    margin-bottom: 5.4vw;
+}
+
+#nomero-brand-web .brand-web-gif-3 p{
+    font-size: 1.04vw;
+    line-height: 171%;
+    letter-spacing: -5%;
+    color: #191938;
+    font-family: 'Paperozi';
+    font-weight: 400;
+    margin-top: 7vw;
+}
+
+#nomero-brand-web .brand-web-gif-3 p span{
+    font-weight: 600;
+}
+
+
 #web{
     width: 100%;
     height: 121vw;
@@ -3416,7 +5061,7 @@ header.white-mode .logo-white { opacity: 1; }
 
 #mockup{
     width: 100vw;
-    height: 100%;
+    height: 56.25vw;
     margin-bottom: 23.4vw;
     /* border: 1px solid red; */
     /* background-color: #7D7D93; */
@@ -3426,11 +5071,38 @@ header.white-mode .logo-white { opacity: 1; }
     /* position: absolute;
     left: -2.6vw;
     bottom: 10vw; */
+    background-image: url('img4/nomero-photo.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-flow: column;
+    padding: 3vw;
 }
 
-#mockup img{
+/* #mockup img{
     width: 100vw;
+} */
+
+
+#mockup h1{
+    font-size: 2.5vw;
+    font-family: "Montserrat", sans-serif;
+    line-height: 141%;
+    letter-spacing: -2%;
+    font-weight: 800;
+    margin-bottom: 3.7vw;
+    margin-top: 3vw;
 }
+
+#mockup p{
+    font-size: 1.04vw;
+    font-family: 'Paperozi';
+    line-height: 141%;
+    letter-spacing: -2%;
+    margin-bottom: 2vw;
+    font-weight: 300;
+}
+
 
 footer{
     width: 100vw;
