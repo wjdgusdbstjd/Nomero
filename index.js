@@ -188,58 +188,172 @@ document.querySelector(".bg-bottom .arrow").addEventListener("click", () => {
 // #SERVICE - 01, 02, 03 탭 메뉴 클릭 인터랙션
 // ================================================
 document.addEventListener("DOMContentLoaded", () => {
-    // 각각의 서비스 화면 박스들을 순서대로 배열에 저장
+
+    // ========================================
+    // SERVICE 탭 전환 인터랙션
+    // ========================================
+
     const serviceSections = [
-        document.querySelector(".service-1"),
-        document.querySelector(".service-2"),
-        document.querySelector(".service-3")
+        document.querySelector("#SERVICE .service-1"),
+        document.querySelector("#SERVICE .service-2"),
+        document.querySelector("#SERVICE .service-3")
     ];
 
-    // 페이지가 처음 열렸을 때는 무조건 1번 화면(.service-1)을 활성화해 둠
-    if (serviceSections[0]) {
-        serviceSections[0].classList.add("active");
+    let currentIndex = 0;
+    let isAnimating = false;
+
+    // ----------------------------------------
+    // 숫자 버튼 활성화 상태 변경
+    // ----------------------------------------
+
+    function updateServiceButtons(index) {
+
+        serviceSections.forEach((section) => {
+
+            if (!section) return;
+
+            const buttons = section.querySelectorAll(".title ul li");
+
+            buttons.forEach((button, buttonIndex) => {
+                button.classList.toggle("page", buttonIndex === index);
+            });
+
+        });
+
     }
 
-    // 화면 안에 존재하는 모든 01, 02, 03 숫자 버튼들(li)을 전부 다 긁어모으기
-    const allTabButtons = document.querySelectorAll("#SERVICE .title ul li");
+    // ----------------------------------------
+    // 초기 화면 설정
+    // ----------------------------------------
 
-    allTabButtons.forEach((btn) => {
-        btn.addEventListener("click", () => {
-            // 클릭한 숫자가 무엇인지 글자(텍스트)를 파악함 ("01", "02", "03")
-            const clickedText = btn.innerText.trim();
-            
-            // 텍스트에 따라 바꿀 타겟 인덱스 번호 매칭하기
-            let targetIndex = 0;
-            if (clickedText === "02") targetIndex = 1;
-            if (clickedText === "03") targetIndex = 2;
+    serviceSections.forEach((section, index) => {
 
-            // 1. 모든 서비스 박스에서 active 클래스를 빼서 싹 다 숨김
-            serviceSections.forEach(section => {
-                if (section) section.classList.remove("active");
-            });
+        if (!section) return;
 
-            // 2. 클릭한 번호에 맞는 서비스 박스만 active를 붙여서 화면에 노출
-            if (serviceSections[targetIndex]) {
-                serviceSections[targetIndex].classList.add("active");
+        const isFirst = index === 0;
+
+        section.classList.toggle("active", isFirst);
+
+        gsap.set(section, {
+            autoAlpha: isFirst ? 1 : 0
+        });
+
+    });
+
+    updateServiceButtons(0);
+
+    // ----------------------------------------
+    // 탭 전환 함수
+    // ----------------------------------------
+
+    function changeService(targetIndex) {
+
+        if (isAnimating) return;
+        if (targetIndex === currentIndex) return;
+
+        const currentSection = serviceSections[currentIndex];
+        const nextSection = serviceSections[targetIndex];
+
+        if (!currentSection || !nextSection) return;
+
+        isAnimating = true;
+
+        // 새 화면을 애니메이션 준비 상태로 설정
+        nextSection.classList.add("active");
+
+        gsap.set(nextSection, {
+            autoAlpha: 0
+        });
+
+        const nextTitle = nextSection.querySelector(".title");
+        const nextImages = nextSection.querySelector(".service-img");
+        const nextText = nextSection.querySelector(".service-left p, .service-txt");
+        const nextFeedback = nextSection.querySelector(".service-right");
+
+        const nextContents = [
+            nextTitle,
+            nextImages,
+            nextText,
+            nextFeedback
+        ].filter(Boolean);
+
+        gsap.set(nextContents, {
+            opacity: 0,
+            y: 18
+        });
+
+        // ------------------------------------
+        // 화면 전환 타임라인
+        // ------------------------------------
+
+        const tl = gsap.timeline({
+
+            onComplete: () => {
+
+                currentSection.classList.remove("active");
+
+                gsap.set(currentSection, {
+                    autoAlpha: 0
+                });
+
+                gsap.set(nextSection, {
+                    autoAlpha: 1
+                });
+
+                currentIndex = targetIndex;
+                isAnimating = false;
+
             }
 
-            // 3. [디테일 동기화] 모든 화면 속 01, 02, 03 버튼들의 검은 동그라미(.page)를 다 지우고,
-            // 새로 켜진 화면의 해당 번호에만 동그라미가 쳐지도록 전체 리셋 후 재부착!
-            allTabButtons.forEach(li => li.classList.remove("page"));
-            
-            // 각 서비스 박스 내부를 돌면서 현재 활성화된 번호에 .page를 다시 입혀줌
-            serviceSections.forEach(section => {
-                if (section && section.classList.contains("active")) {
-                    const currentLis = section.querySelectorAll(".title ul li");
-                    if (currentLis[targetIndex]) {
-                        currentLis[targetIndex].classList.add("page");
-                    }
-                }
-            });
         });
-    });
-});
 
+        // 1. 기존 화면 페이드아웃
+        tl.to(currentSection, {
+            autoAlpha: 0,
+            duration: 0.3,
+            ease: "power2.inOut"
+        });
+
+        // 2. 새로운 화면 등장
+        tl.set(nextSection, {
+            autoAlpha: 1
+        });
+
+        // 3. 새 화면의 요소들이 자연스럽게 등장
+        tl.to(nextContents, {
+            opacity: 1,
+            y: 0,
+            duration: 0.65,
+            stagger: 0.08,
+            ease: "power3.out"
+        }, "-=0.05");
+
+        // 숫자 버튼 상태 변경
+        updateServiceButtons(targetIndex);
+
+    }
+
+    // ----------------------------------------
+    // 숫자 버튼 클릭 이벤트
+    // ----------------------------------------
+
+    serviceSections.forEach((section) => {
+
+        if (!section) return;
+
+        const buttons = section.querySelectorAll(".title ul li");
+
+        buttons.forEach((button, index) => {
+
+            button.addEventListener("click", () => {
+                changeService(index);
+            });
+
+        });
+
+    });
+
+});
 
 
 
@@ -250,7 +364,7 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
     const aiPhrases = document.querySelectorAll(".AI-chage p");
     let currentPhraseIndex = 0;
-    const phraseDisplayTime = 3000; // 문장이 머무르는 시간 (4초마다 변경)
+    const phraseDisplayTime = 1500; // 문장이 머무르는 시간 (4초마다 변경)
 
     // 문장을 순서대로 바꾸는 함수
     function rotatePhrases() {
