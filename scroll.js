@@ -2359,86 +2359,121 @@ gsap.from("#nomero-brand-web .brand-web-right", {
 
 
 
+gsap.from("#nomero-brand-web .web-preview", {
+    y: "5vw",           // 아래쪽에서 시작
+    opacity: 0,
+    duration: 0.9,
+    stagger: 0.15,      // 여기도 0.15초 간격으로 시간차 등장
+    delay: 0.4,         // 첫 번째 ul이 어느 정도 나오고 나서 뒤따라 나오도록 미세한 딜레이 추가!
+    ease: "power2.out",
+    scrollTrigger: {
+        trigger: "#nomero-brand-web .web-preview",
+        start: "top 85%",
+        // toggleActions: "play reverse play reverse"
+        toggleActions: "play reverse play reverse"
+    }
+});
+
+
+
+
+gsap.from("#nomero-brand-web .brand-web-gif-1 p", {
+    y: "5vw",           // 아래쪽에서 시작
+    opacity: 0,
+    duration: 0.9,
+    stagger: 0.15,      // 여기도 0.15초 간격으로 시간차 등장
+    delay: 0.4,         // 첫 번째 ul이 어느 정도 나오고 나서 뒤따라 나오도록 미세한 딜레이 추가!
+    ease: "power2.out",
+    scrollTrigger: {
+        trigger: "#nomero-brand-web .brand-web-gif-1 p",
+        start: "top 85%",
+        // toggleActions: "play reverse play reverse"
+        toggleActions: "play reverse play reverse"
+    }
+});
+
+
+
+
 // -----------------------------------
 
 
-gsap.registerPlugin(ScrollTrigger);
+// gsap.registerPlugin(ScrollTrigger);
 
-function createBrandWebAnimation(selector, titleFrom, imageFrom) {
+// function createBrandWebAnimation(selector, titleFrom, imageFrom) {
 
-    const section = document.querySelector(selector);
+//     const section = document.querySelector(selector);
 
-    if (!section) return;
+//     if (!section) return;
 
-    const title = section.querySelector("h1");
-    const image = section.querySelector(".gif");
+//     const title = section.querySelector("h1");
+//     const image = section.querySelector(".gif");
 
-    // 1. 초기 상태를 먼저 설정
-    gsap.set(title, {
-        ...titleFrom,
-        opacity: 0
-    });
+    
+//     gsap.set(title, {
+//         ...titleFrom,
+//         opacity: 0
+//     });
 
-    gsap.set(image, {
-        ...imageFrom,
-        opacity: 0
-    });
+//     gsap.set(image, {
+//         ...imageFrom,
+//         opacity: 0
+//     });
 
-    // 2. 타임라인 생성
-    const tl = gsap.timeline({
-        paused: true,
-        defaults: {
-            ease: "power3.out"
-        }
-    });
+    
+//     const tl = gsap.timeline({
+//         paused: true,
+//         defaults: {
+//             ease: "power3.out"
+//         }
+//     });
 
-    // 3. 제목 등장
-    tl.to(title, {
-        x: 0,
-        y: 0,
-        opacity: 1,
-        duration: 1
-    });
-
-// 4. 제목이 나타나는 도중 GIF 등장
-tl.to(image, {
-    x: 0,
-    y: 0,
-    opacity: 1,
-    duration: 1.2
-}, 0.3);
-
-    // 5. 스크롤 진입 시 실행
-    // 5. 스크롤 최초 진입 시 한 번만 실행
-ScrollTrigger.create({
-    trigger: section,
-    start: "top 75%",
-    once: true,
-    onEnter: () => tl.play()
-});
-}
+    
+//     tl.to(title, {
+//         x: 0,
+//         y: 0,
+//         opacity: 1,
+//         duration: 1
+//     });
 
 
-// HOME
-createBrandWebAnimation(
-    ".brand-web-gif-1",
-    { x: -120 },
-    { x: 120 }
-);
+// tl.to(image, {
+//     x: 0,
+//     y: 0,
+//     opacity: 1,
+//     duration: 1.2
+// }, 0.3);
 
-// SHOP
-createBrandWebAnimation(
-    ".brand-web-gif-2",
-    { x: 120 },
-    { x: -120 }
-);
+    
+// ScrollTrigger.create({
+//     trigger: section,
+//     start: "top 75%",
+//     once: true,
+//     onEnter: () => tl.play()
+// });
+// }
 
-// MAGAZINE
-createBrandWebAnimation(
-    ".brand-web-gif-3",
-    { y: -100 },
-    { y: 100 }
-);
+
+
+// createBrandWebAnimation(
+//     ".brand-web-gif-1",
+//     { x: -120 },
+//     { x: 120 }
+// );
+
+
+// createBrandWebAnimation(
+//     ".brand-web-gif-2",
+//     { x: 120 },
+//     { x: -120 }
+// );
+
+
+// createBrandWebAnimation(
+//     ".brand-web-gif-3",
+//     { y: -100 },
+//     { y: 100 }
+// );
 
 
 
