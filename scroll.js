@@ -893,6 +893,21 @@ gsap.from("#DESIGN .color", {
 });
 
 
+gsap.from("#DESIGN .color-txt", {
+    x: "6vw",
+    opacity: 0,
+    duration: 0.9,
+    stagger: 0.18,
+    delay: 0.3,
+    ease: "power2.out",
+    scrollTrigger: {
+        trigger: "#DESIGN .color",
+        start: "top 85%",
+        toggleActions: "play reverse play reverse"
+    }
+});
+
+
 // DESIGN - LOGO SYSTEM 인터랙션
 gsap.from("#DESIGN .logo-txt .circle", {
     x: "5vw",
@@ -1176,6 +1191,21 @@ gsap.from("#DESIGN .typo h1", {
     ease: "power2.out",
     scrollTrigger: {
         trigger: "#DESIGN .typo h1",
+        start: "top 85%",
+        toggleActions: "play reverse play reverse"
+    }
+});
+
+
+gsap.from("#DESIGN .typo-txt", {
+    y: "-5vw",           // 아래쪽에서 시작
+    opacity: 0,
+    duration: 0.8,
+    stagger: 0.15,      // 여기도 0.15초 간격으로 시간차 등장
+    delay: 0.3,         // 첫 번째 ul이 어느 정도 나오고 나서 뒤따라 나오도록 미세한 딜레이 추가!
+    ease: "power2.out",
+    scrollTrigger: {
+        trigger: "#DESIGN .typo",
         start: "top 85%",
         toggleActions: "play reverse play reverse"
     }
@@ -2112,7 +2142,7 @@ ecoTimeline.to("#ECO-EDITORIAL .eco-star", {
     scale: 1,
     duration: 1.2,
     ease: "back.out(1.7)"
-}, "-=0.4");
+}, "-=0.7");
 
 // 별 등장 완료 후 무한 회전 시작
 ecoTimeline.call(() => {
@@ -2120,13 +2150,26 @@ ecoTimeline.call(() => {
 });
 
 // 6. 하단 슬로건 등장
-ecoTimeline.to("#ECO-EDITORIAL .eco-bottom-text", {
+// ecoTimeline.to("#ECO-EDITORIAL .eco-bottom-text", {
+//     opacity: 1,
+//     y: 0,
+//     duration: 1.1
+// }, 1.8);
+
+
+
+// 6. 하단 슬로건 등장 (한 번만 실행)
+gsap.to("#ECO-EDITORIAL .eco-bottom-text", {
     opacity: 1,
     y: 0,
-    duration: 1.1
-}, 1.8);
-
-
+    duration: 1.1,
+    ease: "power3.out",
+    scrollTrigger: {
+        trigger: "#ECO-EDITORIAL .eco-bottom-text",
+        start: "top 85%",
+        once: true
+    }
+});
 
 // -----------------------------------------
 
@@ -2242,13 +2285,13 @@ goodsIntroTimeline.to(goodsTitleLines, {
     ease: "power3.out"
 });
 
-// 2. 제목이 완전히 나타난 후 설명 등장
+// 2. 설명 텍스트 빠르게 등장
 goodsIntroTimeline.to(goodsDescription, {
     x: 0,
     opacity: 1,
     duration: 0.9,
     ease: "power3.out"
-}, "+=0.1");
+}, 0.3);
 
 // 화면 진입 감지
 ScrollTrigger.create({
@@ -2357,13 +2400,13 @@ function createBrandWebAnimation(selector, titleFrom, imageFrom) {
         duration: 1
     });
 
-    // 4. 제목이 완전히 나타난 후 이미지 등장
-    tl.to(image, {
-        x: 0,
-        y: 0,
-        opacity: 1,
-        duration: 1.2
-    }, "+=0.1");
+// 4. 제목이 나타나는 도중 GIF 등장
+tl.to(image, {
+    x: 0,
+    y: 0,
+    opacity: 1,
+    duration: 1.2
+}, 0.3);
 
     // 5. 스크롤 진입 시 실행
     // 5. 스크롤 최초 진입 시 한 번만 실행
@@ -2695,8 +2738,11 @@ gsap.from("#PACKAGE-DESIGN .package-main-2", {
 
 
 
-
+// ========================================
 // DESIGN - LOGO GRID DRAWING
+// ========================================
+
+gsap.registerPlugin(ScrollTrigger);
 
 fetch("img4/logo grid.svg")
     .then(response => {
@@ -2711,21 +2757,39 @@ fetch("img4/logo grid.svg")
             "#DESIGN .logo-grid-svg"
         );
 
+        if (!container) return;
+
         container.innerHTML = svgText;
 
         const svg = container.querySelector("svg");
+        if (!svg) return;
 
-        // 선으로 이루어진 가이드라인 선택
+
+        // ========================================
+        // 1. SVG 요소 선택
+        // ========================================
+
+        // 가이드라인
         const lines = Array.from(
             svg.querySelectorAll("path[stroke]")
         );
 
-        // NOMERO 로고 이미지가 들어 있는 SVG 요소
+        // NOMERO 로고
         const logo = svg.querySelector(
             'rect[fill^="url(#pattern"]'
         );
 
-        // 선의 길이를 계산해 처음에는 보이지 않도록 설정
+        // 설명 텍스트
+        const labels = Array.from(
+            svg.querySelectorAll("path[fill]")
+        ).filter(path => path.getAttribute("fill") !== "white");
+
+
+        // ========================================
+        // 2. 초기 상태 설정
+        // ========================================
+
+        // 가이드라인 숨기기
         lines.forEach(line => {
             const length = line.getTotalLength();
 
@@ -2735,33 +2799,62 @@ fetch("img4/logo grid.svg")
             });
         });
 
-        // 로고 숨기기
+        // NOMERO 로고 숨기기
         if (logo) {
             gsap.set(logo, {
                 opacity: 0
             });
         }
 
-        // 인터랙션 타임라인
+        // 설명 텍스트 숨기기
+        gsap.set(labels, {
+            opacity: 0
+        });
+
+
+        // ========================================
+        // 3. 스크롤 인터랙션
+        // ========================================
+
         const tl = gsap.timeline({
-    scrollTrigger: {
-        trigger: container,
-        start: "top 60%",
-        toggleActions: "play none none reverse",
-                // markers: true
-        markers: false
-    }
-});
+            scrollTrigger: {
+                trigger: container,
+                start: "top 50%",
+                once: true,
+                markers: false,
+                invalidateOnRefresh: true
+            }
+        });
 
-        // 1. 가이드라인이 하나씩 그려짐
+
+        // ========================================
+        // 4. 가이드라인 그리기
+        // ========================================
+
         tl.to(lines, {
-    strokeDashoffset: 0,
-    duration: 1.1,
-    stagger: 0.02,
-    ease: "power2.inOut"
-});
+            strokeDashoffset: 0,
+            duration: 1.1,
+            stagger: 0.02,
+            ease: "power2.inOut"
+        });
 
-        // 2. 로고 등장
+
+        // ========================================
+        // 5. 설명 텍스트 등장
+        // ========================================
+
+        tl.to(labels, {
+            opacity: 1,
+            duration: 0.8,
+            stagger: 0.025,
+            ease: "power2.out"
+        }, "-=0.4");
+
+
+        // ========================================
+        // 6. NOMERO 로고 등장
+        // ========================================
+
         if (logo) {
             tl.to(logo, {
                 opacity: 1,
@@ -2770,10 +2863,115 @@ fetch("img4/logo grid.svg")
             }, "-=0.8");
         }
 
-        // SVG 삽입 후 스크롤 위치 재계산
+
+        // ========================================
+        // 7. 스크롤 위치 재계산
+        // ========================================
+
         ScrollTrigger.refresh();
 
     })
     .catch(error => {
         console.error(error);
     });
+
+// -------------------------------------------------
+
+    gsap.registerPlugin(ScrollTrigger);
+
+// DESK RESEARCH - 상단 설명
+gsap.from("#DESK-RESEARCH > h3", {
+    y: "3vw",
+    opacity: 0,
+    duration: 1,
+    ease: "power3.out",
+    scrollTrigger: {
+        trigger: "#DESK-RESEARCH > h3",
+        start: "top 75%",
+        // once: true
+        toggleActions: "restart none restart reset"
+    }
+});
+
+// DESK RESEARCH - 카드 및 그래프
+const deskCards = gsap.utils.toArray(
+    "#DESK-RESEARCH .desk-graph > div"
+);
+
+deskCards.forEach((card) => {
+
+    const bars = card.querySelectorAll(".bar-navy");
+    const circle = card.querySelector(".circle");
+    const number = circle?.querySelector("span");
+
+    // 막대그래프 초기 상태
+    gsap.set(bars, {
+        scaleX: 0,
+        transformOrigin: "left center"
+    });
+
+    // 원형그래프 초기 상태
+    if (circle) {
+        gsap.set(circle, {
+            background: "conic-gradient(#191938 0% 0%, #E1E6E9 0% 100%)"
+        });
+    }
+
+    if (number) {
+        number.textContent = "0%";
+    }
+
+    const tl = gsap.timeline({
+    scrollTrigger: {
+        trigger: card,
+        start: "top 80%",
+        toggleActions: "restart none restart reset",
+
+        onLeaveBack: () => {
+            if (circle && number) {
+                circle.style.background =
+                    "conic-gradient(#191938 0% 0%, #E1E6E9 0% 100%)";
+
+                number.textContent = "0%";
+            }
+        }
+    }
+});
+
+    // 카드 등장
+    tl.from(card, {
+        y: "3vw",
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out"
+    });
+
+    // 막대그래프 채워짐
+    if (bars.length) {
+        tl.to(bars, {
+            scaleX: 1,
+            duration: 1.1,
+            stagger: 0.2,
+            ease: "power2.out"
+        }, "-=0.2");
+    }
+
+    // 원형그래프 0% → 62%
+    if (circle && number) {
+        const progress = { value: 0 };
+
+        tl.to(progress, {
+            value: 62,
+            duration: 1.4,
+            ease: "power2.out",
+            onUpdate: () => {
+                const value = progress.value;
+
+                circle.style.background =
+                    `conic-gradient(#191938 0% ${value}%, #E1E6E9 ${value}% 100%)`;
+
+                number.textContent = `${Math.round(value)}%`;
+            }
+        }, "-=0.2");
+    }
+});
