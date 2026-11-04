@@ -800,13 +800,14 @@ header.white-mode .logo-white { opacity: 1; }
 
 
 #BACKGROUND .graph-1 {
-    border: 0.052vw solid #191938;
+    border: 1px solid #191938;
     /* border-right는 그대로 유지 */
 }
 
 #BACKGROUND .graph-2 {
-    border: 0.052vw solid #191938;
+    border: 1px solid #191938;
     border-left: none; /* graph-1의 right border가 중앙선 역할 */
+    transform: translateX(-0.01vw);
 }
 
 
@@ -874,7 +875,7 @@ header.white-mode .logo-white { opacity: 1; }
 #research .research-bottom {
     width: 71.93vw;
     height: 38.96vw;
-    border: 0.052vw solid #191938;
+    border: 1px solid #191938;
     position: absolute;
     right: 1vw;
     display: flex;
@@ -910,7 +911,7 @@ header.white-mode .logo-white { opacity: 1; }
 
 #research .research-bottom .line {
     width: 71.93vw;
-    border-top: 0.052vw solid #191938; /* research-bottom의 border와 동일한 값 */
+    border-top: 1px solid #191938; /* research-bottom의 border와 동일한 값 */
     position: relative;
     bottom: 1.4vw;
 }
@@ -1629,7 +1630,7 @@ header.white-mode .logo-white { opacity: 1; }
     flex-flow: column;
     justify-content: baseline;
     align-items: center;
-    margin-top: 10vw;
+    margin-top: 15vw;
 }
 
 #DESK-RESEARCH h3{
@@ -1639,7 +1640,7 @@ header.white-mode .logo-white { opacity: 1; }
     text-align: center;
     line-height: 150%;
     color: #191938;
-    margin-bottom: 8vw;
+    margin-bottom: 5vw;
     margin-top: 5vw;
 }
 
@@ -1651,7 +1652,7 @@ header.white-mode .logo-white { opacity: 1; }
 #DESK-RESEARCH .desk-graph-1{
     width: 22.92vw;
     height: 25.02vw;
-    border: 0.08vw solid #191938;
+    border: 1px solid #191938;
     padding: 2vw;
     margin: 0.5vw;
 }
@@ -1768,7 +1769,7 @@ header.white-mode .logo-white { opacity: 1; }
 #DESK-RESEARCH .desk-graph-3{
     width: 22.92vw;
     height: 25.02vw;
-    border: 0.08vw solid #191938;
+    border: 1px solid #191938;
     padding: 2vw;
     margin: 0.5vw;
 }
@@ -1853,7 +1854,7 @@ header.white-mode .logo-white { opacity: 1; }
 
 #DESK-RESEARCH .desk-graph-3 .line{
     position: relative;
-    bottom: 0.6vw;
+    bottom: 0.5vw;
 }
 
 
@@ -2027,8 +2028,8 @@ header.white-mode .logo-white { opacity: 1; }
     width: 100%;
     height: 10.4vw;
 
-    border-top: 0.052vw solid #191938;
-    border-bottom: 0.052vw solid #191938;
+    border-top: 1px solid #191938;
+    border-bottom: 1px solid #191938;
 
     position: absolute;
     bottom: 9vw;
@@ -2039,7 +2040,7 @@ header.white-mode .logo-white { opacity: 1; }
 #BRAND-SLOGAN .keyword-item {
     padding: 3.5vw 1.7vw;
 
-    border-right: 0.052vw solid #191938;
+    border-right: 1px solid #191938;
 }
 
 /* 마지막 박스 */
@@ -2337,7 +2338,7 @@ header.white-mode .logo-white { opacity: 1; }
 #PERSONA ul li {
     width: 21.83vw;
     height: 21.83vw;
-    border: 0.052vw solid #191938;
+    border: 1px solid #191938;
     margin-right: 2.45vw;
     padding: 1.82vw;
     position: relative;
@@ -2479,15 +2480,15 @@ header.white-mode .logo-white { opacity: 1; }
     width: 100%;
     margin-top: 2.7vw;
 
-    border-top: 0.052vw solid #191938;
-    border-bottom: 0.052vw solid #191938;
+    border-top: 1px solid #191938;
+    border-bottom: 1px solid #191938;
 }
 
 /* 개별 단계 */
 #USER-JOURNEY .journey-item {
     padding: 2.3vw;
     min-width: 0;
-    border-right: 0.052vw solid #191938;
+    border-right: 1px solid #191938;
     
 }
 
@@ -2595,16 +2596,16 @@ header.white-mode .logo-white { opacity: 1; }
 }
 
 #value .value-list li:nth-child(1){
-    border-top: 0.052vw solid #191938;
+    border-top: 1px solid #191938;
 }
 
 #value .value-list li:nth-child(2){
-    border-top: 0.052vw solid #191938;
+    border-top: 1px solid #191938;
 }
 
 #value .value-list li:nth-child(3){
-    border-top: 0.052vw solid #191938;
-    border-bottom: 0.052vw solid #191938;
+    border-top: 1px solid #191938;
+    border-bottom: 1px solid #191938;
 }
 
 #value .value-list li:nth-child(1) h3{
@@ -2771,8 +2772,8 @@ header.white-mode .logo-white { opacity: 1; }
 #food ul li {
     width: 26.04vw;
     height: 26.04vw;
-    border-right: 0.052vw solid #191938;
-    border-bottom: 0.052vw solid #191938;
+    border-right: 1px solid #191938;
+    border-bottom: 1px solid #191938;
     /* border: 1px solid red; */
     display: flex;
     flex-flow: column;
@@ -2793,8 +2794,8 @@ header.white-mode .logo-white { opacity: 1; }
 
 #food .meal {
     width: 100.05vw;
-    border-top: 0.052vw solid #191938;
-    border-left: 0.052vw solid #191938;
+    border-top: 1px solid #191938;
+    border-left: 1px solid #191938;
     margin-bottom: 5.21vw;
     /* position: absolute;
     left: -2.6vw; */
@@ -2820,8 +2821,8 @@ header.white-mode .logo-white { opacity: 1; }
 
 #food .digestible {
     width: 100.05vw;
-    border-top: 0.052vw solid #191938;
-    border-left: 0.052vw solid #191938;
+    border-top: 1px solid #191938;
+    border-left: 1px solid #191938;
     margin-bottom: 5.21vw;
 }
 
@@ -2847,8 +2848,8 @@ header.white-mode .logo-white { opacity: 1; }
 
 #food .snack {
     width: 100.05vw;
-    border-top: 0.052vw solid #191938;
-    border-left: 0.052vw solid #191938;
+    border-top: 1px solid #191938;
+    border-left: 1px solid #191938;
     margin-bottom: 5.21vw;
 }
 
@@ -2872,8 +2873,8 @@ header.white-mode .logo-white { opacity: 1; }
 
 #food .body {
     width: 100.05vw;
-    border-top: 0.052vw solid #191938;
-    border-left: 0.052vw solid #191938;
+    border-top: 1px solid #191938;
+    border-left: 1px solid #191938;
 }
 
 #food .body ul:nth-child(1) li:nth-child(2){
@@ -2911,7 +2912,7 @@ header.white-mode .logo-white { opacity: 1; }
 
 #DESIGN{
     width: 100%;
-    height: 170vw;
+    height: 143vw;
     /* background-color: #d2d2d2; */
     position: relative;
     display: flex;
@@ -2945,6 +2946,8 @@ header.white-mode .logo-white { opacity: 1; }
     background-color: #191938;
     border-radius: 100%;
     margin-bottom: 1vw;
+    position: relative;
+    left: 5.3vw;
 }
 
 #DESIGN .logo-sys h1{
@@ -2953,6 +2956,8 @@ header.white-mode .logo-white { opacity: 1; }
     line-height: 90%;
     margin-bottom: 3vw;
     letter-spacing: -5%;
+    position: relative;
+    left: 5.2vw;
 }
 
 #DESIGN .logo-sys p{
@@ -2961,6 +2966,8 @@ header.white-mode .logo-white { opacity: 1; }
     line-height: 165%;
     color: #191938;
     margin-bottom: 3vw;
+    position: relative;
+    left: 5.5vw;
 }
 
 /* #DESIGN .logo-sys img{
@@ -2970,13 +2977,21 @@ header.white-mode .logo-white { opacity: 1; }
 
 /* LOGO SYSTEM SVG */
 #DESIGN .logo-grid-svg {
-    width: 48vw;
+    /* width: 48vw; */
+    width: 55vw;
+     /* border: 1px solid red; */
 }
 
 #DESIGN .logo-grid-svg svg {
     display: block;
     width: 100%;
     height: auto;
+    /* position: relative;
+    right: 20vw;
+    bottom: 3vw; */
+    /* border: 1px solid red; */
+    position: relative;
+    left: 2.3vw;
 }
 
 #DESIGN .color{
@@ -2987,7 +3002,7 @@ header.white-mode .logo-white { opacity: 1; }
     width: 20%;
     position: absolute;
     left: 23.96vw;
-    top: 55vw;
+    top: 45vw;
     z-index: 1;
 }
 
@@ -3008,8 +3023,8 @@ header.white-mode .logo-white { opacity: 1; }
     font-size: 1.04vw;
     line-height: 141%;
     position: relative;
-    left: 17vw;
-    bottom: 16vw;
+    left: 15vw;
+    bottom: 24.7vw;
 }
 
 
@@ -3019,7 +3034,7 @@ header.white-mode .logo-white { opacity: 1; }
     position: absolute;
     left: 0;
     /* top: 24.11vw; */
-    top: 73vw;
+    top: 61.6vw;
 }
 #DESIGN ul li{
     position: relative;
@@ -3096,8 +3111,8 @@ header.white-mode .logo-white { opacity: 1; }
 
 #DESIGN .typo{
     position: absolute;
-    right: 23.96vw;
-    top: 115.21vw;
+    right: 24vw;
+    top: 105vw;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -3125,8 +3140,8 @@ header.white-mode .logo-white { opacity: 1; }
     font-size: 1.04vw;
     line-height: 141%;
     position: relative;
-    top: 40vw;
-    right: 22vw;
+    top: 29.4vw;
+    right: 20vw;
 }
 
 #DESIGN .typo-list{
@@ -3137,7 +3152,7 @@ header.white-mode .logo-white { opacity: 1; }
     justify-content: center;
     align-items: first baseline;
     position: absolute;
-    top: 135vw;
+    top: 124vw;
     right: 2.14vw;
 }
 
@@ -3208,6 +3223,7 @@ header.white-mode .logo-white { opacity: 1; }
     position: relative;
     padding-bottom: 3vw;
     /* border: 5px solid red; */
+    margin-top: 10vw;
 }
 
 /* 상단 기획 설명 */
@@ -3401,7 +3417,7 @@ header.white-mode .logo-white { opacity: 1; }
     width: 100%;
     height: 75vw;
     position: relative;
-    left: 3vw;
+    left: 5vw;
     margin-top: 5vw;
 }
 
@@ -3425,17 +3441,21 @@ header.white-mode .logo-white { opacity: 1; }
 
 /* 왼쪽 이미지 */
 #PACKAGE-DESIGN .liquid-left {
-    width: 24vw;
-    height: 38.5vw;
+    /* width: 24vw;
+    height: 38.5vw; */
+    width: 26vw;
+    /* height: 45.5vw; */
     margin-top: 0;
 }
 
 #PACKAGE-DESIGN .liquid-right {
-    width: 24vw;
-    height: 38.5vw;
+    /* width: 24vw;
+    height: 38.5vw; */
+    width: 26vw;
+    /* height: 38.5vw; */
     margin-top: 19vw;
     position: relative;
-    right: 31vw;
+    right: 28vw;
 }
 
 /* 이미지 */
@@ -3477,12 +3497,12 @@ header.white-mode .logo-white { opacity: 1; }
 #PACKAGE-DESIGN .liquid > p {
     position: absolute;
     top: 0;
-    right: 0;
+    right: 8vw;
 
-    width: 44%;
+    /* width: 44%; */
 
     font-family: 'Paperozi';
-    font-size: 0.83vw;
+    font-size: 1.04vw;
     font-weight: 400;
     line-height: 175%;
     color: #191938;
@@ -3554,7 +3574,7 @@ header.white-mode .logo-white { opacity: 1; }
     align-items: center;
     width: 101%;
     height: 6.09vw;
-    border: 0.052vw solid #191938;
+    border: 1px solid #191938;
     position: relative;
     right: 0.1vw;
 }
@@ -3641,8 +3661,8 @@ header.white-mode .logo-white { opacity: 1; }
     height: 50.16vw;
     /* border: 1px solid red; */
     padding-left: 10.57vw;
-    border-right: 0.052vw solid #191938;
-    border-bottom: 0.052vw solid #191938;
+    border-right: 1px solid #191938;
+    border-bottom: 1px solid #191938;
 }
 
 #SERVICE .service-right {
@@ -3650,7 +3670,7 @@ header.white-mode .logo-white { opacity: 1; }
     /* background-color: #a1aa7e; */
     height: 50.16vw;
     padding-left: 3.49vw;;
-    border-bottom: 0.052vw solid #191938;
+    border-bottom: 1px solid #191938;
 }
 
 /* ==========================================
@@ -4879,7 +4899,7 @@ header.white-mode .logo-white { opacity: 1; }
 
 #nomero-brand-web{
     width: 100%;
-    height: 200vw;
+    height: 80vw;
     /* border: 1px solid red; */
     position: relative;
     margin-top: 24vw;
@@ -4920,6 +4940,47 @@ header.white-mode .logo-white { opacity: 1; }
     top: 0.18vw;
 }
 
+#nomero-brand-web .brand-web-gif-1{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8vw;
+}
+
+
+.web-preview {
+    width: 82%;
+    height: 45vw;
+    overflow: hidden;
+    border: 1px solid #191938;
+    /* position: relative;
+    left: 4vw;
+    top: 1.6vw; */
+}
+
+.web-preview iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+
+#nomero-brand-web .brand-web-gif-1 p{
+    font-size: 1.04vw;
+    line-height: 171%;
+    letter-spacing: -5%;
+    color: #191938;
+    font-family: 'Paperozi';
+    font-weight: 400;
+    margin-top: 7vw;
+}
+
+#nomero-brand-web .brand-web-gif-1 p span{
+    font-weight: 600;
+}
+
+
 #nomero-brand-web h1{
     font-family: "Montserrat", sans-serif;
     font-size: 6.72vw;
@@ -4931,10 +4992,7 @@ header.white-mode .logo-white { opacity: 1; }
     width: 70vw;
 }
 
-#nomero-brand-web .brand-web-gif-1{
-    display: flex;
-    margin-top: 20vw;
-}
+
 
 
 #nomero-brand-web .brand-web-gif-1 img{
@@ -4966,7 +5024,7 @@ header.white-mode .logo-white { opacity: 1; }
     margin-bottom: 5.4vw;
 }
 
-#nomero-brand-web .brand-web-gif-3 p{
+/* #nomero-brand-web .brand-web-gif-3 p{
     font-size: 1.04vw;
     line-height: 171%;
     letter-spacing: -5%;
@@ -4974,11 +5032,11 @@ header.white-mode .logo-white { opacity: 1; }
     font-family: 'Paperozi';
     font-weight: 400;
     margin-top: 7vw;
-}
+} */
 
-#nomero-brand-web .brand-web-gif-3 p span{
+/* #nomero-brand-web .brand-web-gif-3 p span{
     font-weight: 600;
-}
+} */
 
 
 #web{
@@ -5280,4 +5338,39 @@ footer .footer-right p{
 .to-top-btn.invert:hover {
     background-color: #f4f4f7; 
     transform: scale(1.05);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* ========================================
+   NOMERO BORDER RESPONSIVE
+======================================== */
+
+@media screen and (max-width: 1024px) {
+
+    #BACKGROUND .graph-1,
+    #BACKGROUND .graph-2,
+    #research .research-bottom,
+    #DESK-RESEARCH .desk-graph-1,
+    #DESK-RESEARCH .desk-graph-3 {
+        border-width: 0.052vw;
+    }
+
+    #research .research-bottom .line {
+        border-top-width: 0.052vw;
+    }
+
+    #DESK-RESEARCH .line {
+        border-width: 0.052vw;
+    }
+
 }
