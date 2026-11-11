@@ -680,6 +680,7 @@ gsap.from("#CONCEPT-4 .nomero-icon", {
 });
 
 
+
 gsap.from("#CONCEPT-4 .concept-4-main h1", {
     y: "6vw",
     opacity: 0,
@@ -2167,7 +2168,7 @@ gsap.to("#ECO-EDITORIAL .eco-bottom-text", {
     scrollTrigger: {
         trigger: "#ECO-EDITORIAL .eco-bottom-text",
         start: "top 85%",
-        once: true
+        toggleActions: "play reverse play reverse"
     }
 });
 
@@ -2675,7 +2676,7 @@ gsap.from("#PACKAGE-DESIGN .package-row-3", {
     scrollTrigger: {
         trigger: "#PACKAGE-DESIGN .package-row-3",
         start: "top 85%",
-        once: true
+        toggleActions: "play reverse play reverse"
     }
 });
 
@@ -2688,7 +2689,7 @@ gsap.from("#PACKAGE-DESIGN .package-row-4", {
     scrollTrigger: {
         trigger: "#PACKAGE-DESIGN .package-row-4",
         start: "top 85%",
-        once: true
+        toggleActions: "play reverse play reverse"
     }
 });
 
@@ -2704,7 +2705,7 @@ gsap.from("#PACKAGE-DESIGN .package-detail-item", {
     scrollTrigger: {
         trigger: "#PACKAGE-DESIGN .package-details",
         start: "top 80%",
-        once: true
+        toggleActions: "play reverse play reverse"
     }
 });
 
@@ -2752,7 +2753,7 @@ gsap.from("#PACKAGE-DESIGN .liquid .liquid-image", {
     scrollTrigger: {
         trigger: "#PACKAGE-DESIGN .liquid-img",
         start: "top 80%",
-        once: true
+        toggleActions: "play reverse play reverse"
     }
 });
 
@@ -2855,7 +2856,7 @@ fetch("img4/logo grid.svg")
             scrollTrigger: {
                 trigger: container,
                 start: "top 50%",
-                once: true,
+                toggleActions: "play reverse play reverse",
                 markers: false,
                 invalidateOnRefresh: true
             }
